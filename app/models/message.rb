@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :sessions
+  belongs_to :session
 end
