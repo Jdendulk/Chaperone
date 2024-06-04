@@ -10,9 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_144628) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_primary_id", null: false
+    t.bigint "user_secondary_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_primary_id"], name: "index_friends_on_user_primary_id"
+    t.index ["user_secondary_id"], name: "index_friends_on_user_secondary_id"
+  end
+
+  create_table "friends_sessions", force: :cascade do |t|
+    t.bigint "friend_id", null: false
+    t.bigint "session_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friends_sessions_on_friend_id"
+    t.index ["session_id"], name: "index_friends_sessions_on_session_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "session_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["session_id"], name: "index_messages_on_session_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.date "date"
+    t.string "who"
+    t.string "what"
+    t.string "initial_meet_location"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "fake_call"
+    t.string "how_did_it_go"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +67,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_144628) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.date "date_of_birth"
+    t.string "mobile_number"
+    t.string "address"
+    t.string "gender"
+    t.string "sexuality"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "friends", "users", column: "user_primary_id"
+  add_foreign_key "friends", "users", column: "user_secondary_id"
+  add_foreign_key "friends_sessions", "friends"
+  add_foreign_key "friends_sessions", "sessions"
+  add_foreign_key "messages", "sessions"
+  add_foreign_key "messages", "users"
+  add_foreign_key "sessions", "users"
 end
