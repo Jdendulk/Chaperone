@@ -1,4 +1,4 @@
 class FriendSession < ApplicationRecord
-  belongs_to :friends
-  belongs_to :sessions
+  belongs_to :friend
+  belongs_to :session
 end
