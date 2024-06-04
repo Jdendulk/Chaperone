@@ -7,3 +7,72 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# Clear existing data
+
+
+Message.destroy_all
+FriendSession.destroy_all
+Friend.destroy_all
+Session.destroy_all
+User.destroy_all
+
+# Create Users
+users = 5.times.map do |i|
+  User.create!(
+    email: "user#{i + 1}@example.com",
+    password: "password#{i + 1}",
+    first_name: "FirstName#{i + 1}",
+    last_name: "LastName#{i + 1}",
+    date_of_birth: "01-01-1990",
+    mobile_number: "1234567890",
+    address: "123 Main St",
+    gender: ["Male", "Female", "Trans", "Gender Neutral", "Non-Binary", "Genderqueer", "Not Sure", "Rather not say"].sample,
+    sexuality: ["Straight", "Gay", "Bisexual", "Asexual", "Queer", "Rather not say"].sample,
+    admin: [true, false].sample
+  )
+end
+
+# Create Sessions
+sessions = 5.times.map do |i|
+  Session.create!(
+    user: users.sample,
+    start_time: "08:00",
+    end_time: "10:00",
+    date: Date.today + i,
+    who: "Who#{i+1}",
+    what: "What#{i+1}",
+    initial_meet_location: "Location#{i+1}",
+    latitude: 51.5074 + i,
+    longitude: -0.1278 + i,
+    fake_call: Time.now + i.hours,
+    how_did_it_go: "Good"
+  )
+end
+
+# Create Friends
+friends = 5.times.map do |i|
+  Friend.create!(
+    user_primary_id: users[i].id,
+    user_secondary_id: users[(i + 1) % users.length].id
+  )
+end
+
+# Create FriendsSessions
+friends_sessions = 5.times.map do |i|
+  FriendSession.create!(
+    friend: friends.sample,
+    session: sessions.sample
+  )
+end
+
+# Create Messages
+5.times do |i|
+  Message.create!(
+    content: "Message content #{i + 1}",
+    user: users.sample,
+    session: sessions.sample
+  )
+end
+
+puts "Seeding completed!"
