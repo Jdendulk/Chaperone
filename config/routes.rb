@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   # root to: "pages#home"
-  resources :pages, only: [:index, :show]
-  resources :meetings, only: [:new, :create, :show, :update, :cancel]
+
+  resources :pages, only: [:show]
+  root to: "pages#index"
+  resources :meetings, only: [:new, :create, :show, :update, :destroy]
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
