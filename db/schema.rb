@@ -24,12 +24,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
   end
 
   create_table "friends", force: :cascade do |t|
-    t.bigint "user_primary_id", null: false
-    t.bigint "user_secondary_id", null: false
+    t.bigint "user_id", null: false
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_primary_id"], name: "index_friends_on_user_primary_id"
-    t.index ["user_secondary_id"], name: "index_friends_on_user_secondary_id"
+    t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
   create_table "meetings", force: :cascade do |t|
@@ -81,8 +80,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
 
   add_foreign_key "friend_meetings", "friends"
   add_foreign_key "friend_meetings", "meetings"
-  add_foreign_key "friends", "users", column: "user_primary_id"
-  add_foreign_key "friends", "users", column: "user_secondary_id"
+  add_foreign_key "friends", "users"
   add_foreign_key "meetings", "users"
   add_foreign_key "messages", "meetings"
   add_foreign_key "messages", "users"

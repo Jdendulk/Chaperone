@@ -5,8 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Primary User</th>
-      <th>Secondary User</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +13,7 @@
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <td><%= friend.user_primary.email %></td>
-        <td><%= friend.user_secondary.email %></td>
+        <td><%= friend.email %></td>
         <td><%= link_to 'Show', friend %></td>
         <td><%= link_to 'Edit', edit_friend_path(friend) %></td>
         <td><%= link_to 'Destroy', friend, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>

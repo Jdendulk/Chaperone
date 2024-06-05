@@ -9,7 +9,7 @@
 #   end
 
 # Clear existing data
-
+require 'faker'
 
 Message.destroy_all
 FriendMeeting.destroy_all
@@ -53,8 +53,8 @@ end
 # Create Friends
 friends = 5.times.map do |i|
   Friend.create!(
-    user_primary_id: users[i].id,
-    user_secondary_id: users[(i + 1) % users.length].id
+    user_id: users[i].id,
+    email: Faker::Internet.email
   )
 end
 
