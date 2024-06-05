@@ -7,4 +7,7 @@ class PagesController < ApplicationController
   def form_page
   end
 
+  def sessions_page
+  end
+
 end
