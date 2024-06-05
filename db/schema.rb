@@ -14,13 +14,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "friend_sessions", force: :cascade do |t|
+  create_table "friend_meetings", force: :cascade do |t|
     t.bigint "friend_id", null: false
-    t.bigint "session_id", null: false
+    t.bigint "meeting_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["friend_id"], name: "index_friend_sessions_on_friend_id"
-    t.index ["session_id"], name: "index_friend_sessions_on_session_id"
+    t.index ["friend_id"], name: "index_friend_meetings_on_friend_id"
+    t.index ["meeting_id"], name: "index_friend_meetings_on_meeting_id"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -32,17 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
     t.index ["user_secondary_id"], name: "index_friends_on_user_secondary_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.bigint "user_id", null: false
-    t.bigint "session_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["session_id"], name: "index_messages_on_session_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "sessions", force: :cascade do |t|
+  create_table "meetings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.time "start_time"
     t.time "end_time"
@@ -56,7 +46,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
     t.string "how_did_it_go"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sessions_on_user_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "meeting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_messages_on_meeting_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,11 +79,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "friend_sessions", "friends"
-  add_foreign_key "friend_sessions", "sessions"
+  add_foreign_key "friend_meetings", "friends"
+  add_foreign_key "friend_meetings", "meetings"
   add_foreign_key "friends", "users", column: "user_primary_id"
   add_foreign_key "friends", "users", column: "user_secondary_id"
-  add_foreign_key "messages", "sessions"
+  add_foreign_key "meetings", "users"
+  add_foreign_key "messages", "meetings"
   add_foreign_key "messages", "users"
-  add_foreign_key "sessions", "users"
 end
