@@ -1,0 +1,11 @@
+
+<%# for updating the information provided for the session %>
+<%= simple_form_for @meeting do |f| %>
+  <%= f.input :start_time, html5: true %>
+  <%= f.input :end_time, html5: true %>
+  <%= f.input :date, html5: true %>
+  <%= f.input :who %>
+  <%= f.input :what %>
+  <%= f.input :initial_meet_location %>
+  <%= f.submit %>
+<% end %>

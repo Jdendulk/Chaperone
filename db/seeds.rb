@@ -12,9 +12,9 @@
 
 
 Message.destroy_all
-FriendSession.destroy_all
+FriendMeeting.destroy_all
 Friend.destroy_all
-Session.destroy_all
+Meeting.destroy_all
 User.destroy_all
 
 # Create Users
@@ -33,9 +33,9 @@ users = 5.times.map do |i|
   )
 end
 
-# Create Sessions
-sessions = 5.times.map do |i|
-  Session.create!(
+# Create Meetings
+meetings = 5.times.map do |i|
+  Meeting.create!(
     user: users.sample,
     start_time: "08:00",
     end_time: "10:00",
@@ -58,11 +58,11 @@ friends = 5.times.map do |i|
   )
 end
 
-# Create FriendsSessions
-friends_sessions = 5.times.map do |i|
-  FriendSession.create!(
+# Create FriendsMeetings
+friends_meetings = 5.times.map do |i|
+  FriendMeeting.create!(
     friend: friends.sample,
-    session: sessions.sample
+    meeting: meetings.sample
   )
 end
 
@@ -71,7 +71,7 @@ end
   Message.create!(
     content: "Message content #{i + 1}",
     user: users.sample,
-    session: sessions.sample
+    meeting: meetings.sample
   )
 end
 

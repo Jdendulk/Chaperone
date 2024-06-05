@@ -1,0 +1,5 @@
+<h2>live session show page</h2>
+
+<%= link_to "Cancel",
+meeting_path(@meeting),
+data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
