@@ -18,7 +18,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
   end
 
-  #how do we go about updating the long/lat throughout the meeting?
+  # how do we go about updating the long/lat throughout the meeting?
 
   # def update_location - need to create a long/lat table, as a meeting has many positions
 
@@ -31,7 +31,7 @@ class MeetingsController < ApplicationController
   redirect_to meeting_path(@meeting)
   end
 
-  #will this allow the user to cancel a future meeting?
+  # will this allow the user to cancel a future meeting?
   def cancel
     # Check that meeting start_time is before Time.zone.now (current_time) before deleting
     @meeting = Meeting.find(params[:id])
