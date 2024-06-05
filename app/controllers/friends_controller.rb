@@ -22,7 +22,7 @@ class FriendsController < ApplicationController
   # POST /friends
   def create
     @friend = Friend.new(friend_params)
-
+    @friend.user = current_user
     if @friend.save
       redirect_to @friend, notice: 'Friend was successfully created.'
     else
@@ -54,6 +54,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:user_primary_id, :user_secondary_id)
+      params.require(:friend).permit(:email)
     end
 end
