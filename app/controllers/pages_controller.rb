@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def form_page
+  end
+
 end
