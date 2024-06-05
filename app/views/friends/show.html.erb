@@ -1,0 +1,14 @@
+<h1>Friend</h1>
+
+<p>
+  <strong>Primary User:</strong>
+  <%= @friend.user_primary.email %>
+</p>
+
+<p>
+  <strong>Secondary User:</strong>
+  <%= @friend.user_secondary.email %>
+</p>
+
+<%= link_to 'Edit', edit_friend_path(@friend) %> |
+<%= link_to 'Back', friends_path %>
