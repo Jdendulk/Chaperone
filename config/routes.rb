@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # root to: "pages#home"
   resources :pages, only: [:index, :show]
   resources :meetings, only: [:new, :create, :show, :update, :cancel]
-
+  resources :users, only: [:create, :update]
+  get "profiles/:id/edit", to: 'users#edit', as: :edit_profile
+  get "profiles/:id", to: 'users#profile', as: :profile
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
