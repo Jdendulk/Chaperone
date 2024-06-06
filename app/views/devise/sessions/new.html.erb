@@ -1,20 +1,29 @@
-<h2>Log in</h2>
 
+<div class="container p-3 mt-3">
+ <h1 class="text-white mb-5 text-center fw-light">  <%= image_tag 'Star 2.svg' %>  login</h1>
+  <%= image_tag "CHAPERONELOGO_ALPHA 1.svg", class: "main-logo" %>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
+    <p class="text-white">email</p>
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email",placeholder: "Enter your email", class: "rounded-pill" },
+                label: false  %>
+    <p class="text-white">password</p>
     <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                input_html: { autocomplete: "current-password",placeholder: "Enter your password", class: "rounded-pill" },
+                label: false %>
+<%= f.input :remember_me, as: :boolean, label_html: { class: "text-white" } if devise_mapping.rememberable? %>
+
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+    <%= f.button :submit, "Log in",  class: "btn btn-success bg-transparent text-success form-control rounded-pill"  %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+<div class="spacer"></div>
