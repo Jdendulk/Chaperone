@@ -1,0 +1,13 @@
+.navbar {
+  height: 86px;
+  border-radius: 40px;
+  width: calc(100% - 1.8rem);
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above other elements */
+
+}
