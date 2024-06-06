@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     member do
       get "/chat", to: "meetings#chat"
     end
+    resources :locations, only: [:create, :edit]
   end
   resources :friends
-
   resources :friend_meetings, only: [:create, :destroy]
 
 
