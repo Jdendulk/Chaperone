@@ -1,29 +1,33 @@
+<div class="container" data-controller="meeting-locations">
+  <h2>live session show page</h2>
 
-<div class="container">
-<h2>live session show page</h2>
+  <%= link_to "Cancel",
+  meeting_path(@meeting),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
-<%= link_to "Cancel",
-meeting_path(@meeting),
-data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
-<div class="d-flex">
-  <div class="flex-grow-1">
-    <%= link_to do %>
-      <button class="btn btn-primary">Need more time +</button>
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <%= link_to do %>
+        <button class="btn btn-primary">Need more time +</button>
       <% end %>
+    </div>
   </div>
-</div>
+  <%# map view %>
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
-<div class="d-flex flex-row gap-2">
-
-      <%= link_to do %>
-    <button class="btn btn-primary ">It's getting weird</button>
+  <div class="d-flex flex-row gap-2">
+    <%= link_to do %>
+      <button class="btn btn-primary ">It's getting weird</button>
     <% end %>
-      <%= link_to do %>
-    <button class="btn btn-primary">Confirm safe</button>
-      <% end %>
-       <%= link_to do %>
-    <button class="btn btn-primary">Help</button>
-     <% end %>
-</div>
+    <%= link_to do %>
+      <button class="btn btn-primary">Confirm safe</button>
+    <% end %>
+    <%= link_to do %>
+      <button class="btn btn-primary">Help</button>
+    <% end %>
+  </div>
 </div>

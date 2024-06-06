@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_06_115624) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
     t.index ["user_id"], name: "index_friends_on_user_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "meeting_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_locations_on_meeting_id"
+  end
+
   create_table "meetings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.time "start_time"
@@ -39,8 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
     t.string "who"
     t.string "what"
     t.string "initial_meet_location"
-    t.float "latitude"
-    t.float "longitude"
     t.datetime "fake_call"
     t.string "how_did_it_go"
     t.datetime "created_at", null: false
@@ -81,6 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_115954) do
   add_foreign_key "friend_meetings", "friends"
   add_foreign_key "friend_meetings", "meetings"
   add_foreign_key "friends", "users"
+  add_foreign_key "locations", "meetings"
   add_foreign_key "meetings", "users"
   add_foreign_key "messages", "meetings"
   add_foreign_key "messages", "users"

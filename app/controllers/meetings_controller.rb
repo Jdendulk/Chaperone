@@ -16,6 +16,13 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
+    # question - is the geocoded.map finding a column within flats referring to geocoded.map or is it convention?
+    @markers = @meeting.locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
   end
 
   #chatroom
