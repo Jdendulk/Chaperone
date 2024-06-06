@@ -1,0 +1,46 @@
+#count-down {
+  font-size: 60px;
+  color: $green;
+  text-align: center;
+}
+
+#need-more-time {
+  background-color: $primary;
+  color: $green;
+
+}
+
+.plus {
+  color: $green;
+  border: 2px solid $green;
+  border-radius: 50%;
+  transform: translate(60px, -3px );
+}
+
+.extend {
+  margin: 0;
+  transform: translate(98px, 105px) rotate(-60deg);
+}
+a {
+  text-decoration: none;
+}
+
+.map {
+  background-image: url("https://www.mapsinternational.co.uk/pub/media/catalog/product/x/l/o/london-city-street-map-print-charcoal_ls01554.jpg");
+  border-radius: 40px;
+  background-position: top;
+  background-repeat: no-repeat;
+  height: 250px;
+
+}
+
+.meeting-btn {
+  min-width: 100px;
+  height: 86px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 16px rgba(35, 35, 35, 0.2);
+}
+
+.text {
+  font-size: 14px;
+}
