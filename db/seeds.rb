@@ -60,10 +60,14 @@ end
 
 # Create FriendsMeetings
 friends_meetings = 5.times.map do |i|
-  FriendMeeting.create!(
-    friend: friends.sample,
-    meeting: meetings.sample
-  )
+  begin
+    FriendMeeting.create!(
+      friend: Friend.all.sample,
+      meeting: Meeting.all.sample
+    )
+  rescue
+    puts "skipped a creation of a friendmeeting because it was a duplicate"
+  end
 end
 
 # Create Messages

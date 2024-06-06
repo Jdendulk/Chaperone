@@ -10,20 +10,28 @@ data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
   <div class="flex-grow-1">
     <%= link_to do %>
       <button class="btn btn-primary">Need more time +</button>
-      <% end %>
+    <% end %>
   </div>
 </div>
 
 <div class="d-flex flex-row gap-2">
-
-      <%= link_to do %>
+  <%= link_to do %>
     <button class="btn btn-primary ">It's getting weird</button>
-    <% end %>
-      <%= link_to do %>
+  <% end %>
+  <%= link_to do %>
     <button class="btn btn-primary">Confirm safe</button>
-      <% end %>
-       <%= link_to do %>
+  <% end %>
+  <%= link_to do %>
     <button class="btn btn-primary">Help</button>
-     <% end %>
+  <% end %>
 </div>
+
+<div>
+  <h2>Friends following you</h2>
+  <ul>
+    <% @meeting.friend_meetings.each do |friend_meeting| %>
+      <li><%= friend_meeting.friend.email %></li>
+    <% end %>
+  </ul>
+
 </div>
