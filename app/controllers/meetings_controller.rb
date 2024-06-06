@@ -18,6 +18,11 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.find(params[:id])
   end
 
+  #chatroom
+  def chat
+    @meeting = Meeting.find(params[:id])
+  end
+
   # how do we go about updating the long/lat throughout the meeting?
 
   # def update_location - need to create a long/lat table, as a meeting has many positions

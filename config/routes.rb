@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   # root to: "pages#home"
+  resources :pages, only: [:index, :show]
+  resources :meetings, only: [:new, :create, :show, :update, :destroy] do
+    member do
+      get "/chat", to: "meetings#chat"
+    end
+  end
+  resources :friends
+
 
   resources :pages, only: [:index, :show]
+  
   root to: "pages#index"
   resources :meetings, only: [:new, :create, :show, :update, :destroy] do
       member do
@@ -11,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:create, :update]
-  get "profiles/:id/edit", to: 'users#edit', as: :edit_profile
+  get "profiles/edit", to: 'users#edit', as: :edit_profile
   get "profiles/:id", to: 'users#profile', as: :profile
   resources :admin, only: [:index , :show]
 

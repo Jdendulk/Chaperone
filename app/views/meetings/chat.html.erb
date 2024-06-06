@@ -1,0 +1,5 @@
+<h1>Meeting with <%= @meeting.who %></h1>
+<%= @meeting.messages.count %>
+<% @meeting.messages.each do |message| %>
+  <p><%= message.content %></p>
+<% end %>
