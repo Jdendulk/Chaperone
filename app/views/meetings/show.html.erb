@@ -1,66 +1,60 @@
+<div class="container p-3 mt-3" data-controller="meeting-locations">
+  <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Ellipse 6.svg' %>  meeting</h1>
+  <h2 id="count-down" class="mb-3">01:28</h2>
 
-<div class="container  p-3 mt-3">
-    <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Ellipse 6.svg' %>  meeting</h1>
-<h2 id="count-down" class="mb-3">01:28</h2>
+  <%= link_to do %>
+    <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i>  extend  </p>
+    <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time">need more time? <i class="fa-solid fa-plus plus p-3"></i></button>
+  <% end %>
 
-<%= link_to do %>
-   <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i>  extend  </p>
-      <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time">need more time? <i class="fa-solid fa-plus plus p-3"></i></button>
-      <% end %>
-
-<h2 class="text-white fw-light">location</h2>
-<div class="map mb-3">
-
-</div>
-
-<div class="buttons d-flex gap-2">
-  <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
-    <div class="text text-center">its getting <br>weird</div>
-    </div>
-  <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
-    <div class="text text-primary">I'm safe</div>
-    </div>
-  <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
-    <div class="text">help</div>
-    </div>
-
-</div>
-
-
-
-
-
-<%= link_to "Cancel",
-meeting_path(@meeting),
-data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-
-<div class="d-flex">
-  <div class="flex-grow-1">
-    <%= link_to do %>
-
-      <button class="btn btn-primary">need more time<i class="fa-solid fa-plus"></i></button>
-
-      <% end %>
-
+  <h2 class="text-white fw-light">location</h2>
+  <div class="map mb-3"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
-<div class="d-flex flex-row gap-2">
-  <%= link_to do %>
-    <button class="btn btn-primary ">It's getting weird</button>
-  <% end %>
-      <%= link_to  howdiditgo_meeting_path do %>
-    <button class="btn btn-primary">Confirm safe</button>
-  <% end %>
-  <%= link_to do %>
-    <button class="btn btn-primary">Help</button>
-  <% end %>
-</div>
-<div>
-  <h2>Friends following you</h2>
-  <ul>
-    <% @meeting.friend_meetings.each do |friend_meeting| %>
-      <li><%= friend_meeting.friend.email %></li>
-    <% end %>
-  </ul>
 
+  <div class="buttons d-flex gap-2">
+    <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
+      <div class="text text-center">its getting <br>weird</div>
+    </div>
+    <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
+      <div class="text text-primary">I'm safe</div>
+    </div>
+    <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
+      <div class="text">help</div>
+    </div>
+  </div>
+
+
+  <%= link_to "Cancel",
+    meeting_path(@meeting),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+  <div class="d-flex">
+    <div class="flex-grow-1">
+      <%= link_to do %>
+        <button class="btn btn-primary">need more time<i class="fa-solid fa-plus"></i></button>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex flex-row gap-2">
+    <%= link_to do %>
+      <button class="btn btn-primary ">It's getting weird</button>
+    <% end %>
+    <%= link_to  howdiditgo_meeting_path do %>
+      <button class="btn btn-primary">Confirm safe</button>
+    <% end %>
+    <%= link_to do %>
+      <button class="btn btn-primary">Help</button>
+    <% end %>
+  </div>
+  <div>
+    <h2>Friends following you</h2>
+    <ul>
+      <% @meeting.friend_meetings.each do |friend_meeting| %>
+        <li><%= friend_meeting.friend.email %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>

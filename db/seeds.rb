@@ -14,6 +14,7 @@ require 'faker'
 Message.destroy_all
 FriendMeeting.destroy_all
 Friend.destroy_all
+Location.destroy_all
 Meeting.destroy_all
 User.destroy_all
 
@@ -35,7 +36,7 @@ end
 
 # Create Meetings
 meetings = 5.times.map do |i|
-  Meeting.create!(
+  meeting = Meeting.create!(
     user: users.sample,
     start_time: "08:00",
     end_time: "10:00",
@@ -43,12 +44,20 @@ meetings = 5.times.map do |i|
     who: "Who#{i+1}",
     what: "What#{i+1}",
     initial_meet_location: "Location#{i+1}",
-    latitude: 51.5074 + i,
-    longitude: -0.1278 + i,
     fake_call: Time.now + i.hours,
     how_did_it_go: "Good"
   )
+
+  Location.create!(
+    meeting: meeting,
+    latitude: 51.5074 + i,
+    longitude: -0.1278 + i
+  )
+
+  meeting
 end
+
+
 
 # Create Friends
 friends = 5.times.map do |i|
