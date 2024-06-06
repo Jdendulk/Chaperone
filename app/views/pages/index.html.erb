@@ -1,38 +1,59 @@
 <%# the styling for this page is inside _home.scss %>
 
-<h1>Index Page</h1>
-<div class="container">
-  <div class="home-square-button-grid">
+
+
+<div class="container p-3 mt-3">
+
+  <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %>  home</h1>
+  <div class="d-flex flex-column gap-3 mb-4">
+
+    <div class="d-flex justify-content-between">
       <%= link_to new_meeting_path do %>
-    <button class="home-square-button">Button 1</button>
+    <button class="btn btn-info main-btn fw-light" >date</button>
     <% end %>
       <%= link_to new_meeting_path do %>
-    <button class="home-square-button">Button 2</button>
+    <button class="btn btn-danger main-btn  fw-light" >hook up</button>
       <% end %>
+    </div>
+
+    <div class="d-flex justify-content-between">
        <%= link_to new_meeting_path do %>
-    <button class="home-square-button">Button 3</button>
-     <% end %>
-     <%= link_to new_meeting_path do %>
-    <button class="home-square-button">Button 4</button>
-     <% end %>
+      <button class="btn btn-success main-btn fw-light" >walking home</button>
+      <% end %>
+        <%= link_to new_meeting_path do %>
+        <button class="btn btn-warning main-btn text-white fw-light" >night out</button>
+        <% end %>
+   </div>
+
+    </div>
+  <h1 class="text-white fw-light fs-2 mb-4">resources</h1>
+  <div class="article d-flex">
+    <div class="col article-1">
+           <h2 class="text-white fw-light fs-4 mb-4">article name</h2>
+           <p class="article-copy text-white fw-light ">lorem ipsum dolor sit amet consectetur. Praesent consequat pharetra odio egestas vulputate integer at.  </p>
+          <p class="click-me text-success fw-bold click-me-1">click me <i class="fa-solid fa-arrow-right"></i> </p>
+    </div>
+     <%= image_tag 'Star 3.svg', class: "star-img" %>
   </div>
 
-  <h1>Article 1</h1>
-  <div class="article">
-    <div class="article-content">
-      <img src="placeholder.png" alt="Placeholder Image">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+ <div class="article d-flex">
+       <%= image_tag 'Ellipse 10.svg', class: "ellipse-img" %>
+    <div class="col article-2">
+           <h2 class="text-white fw-light fs-4 mb-4">article name</h2>
+           <p class="article-copy text-white fw-light ">lorem ipsum dolor sit amet consectetur. Praesent consequat pharetra odio egestas vulputate integer at.  </p>
+          <p class="click-me text-success fw-bold click-me-2"><i class="fa-solid fa-arrow-left"></i>  click me  </p>
     </div>
-    <button class="button">Click me!</button>
+
   </div>
 
-  <h1>Article 2</h1>
-  <div class="article">
-    <div class="article-content">
-      <img src="placeholder.png" alt="Placeholder Image">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+ <div class="article d-flex">
+    <div class="col article-3">
+           <h2 class="text-white fw-light fs-4 mb-4">article name</h2>
+           <p class="article-copy text-white fw-light ">lorem ipsum dolor sit amet consectetur. Praesent consequat pharetra odio egestas vulputate integer at.  </p>
+          <p class="click-me text-success fw-bold click-me-3 ">click me <i class="fa-solid fa-arrow-right"></i> </p>
     </div>
-    <button class="button">Click me!</button>
+     <%= image_tag 'Polygon 3.svg', class: "star-img" %>
   </div>
 
 </div>
+<div class="spacer"></div>
