@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
   resources :pages, only: [:index, :show]
-  
+
   root to: "pages#index"
   resources :meetings, only: [:new, :create, :show, :update, :destroy] do
       member do

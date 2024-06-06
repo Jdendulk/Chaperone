@@ -10,13 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
+@import "meetings/index";
 
 
 body {
   background-image: url(index.svg);
+
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 @media (min-width: 430px) {
