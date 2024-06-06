@@ -12,13 +12,19 @@ Rails.application.routes.draw do
   resources :friend_meetings, only: [:create, :destroy]
 
 
-
-
   resources :pages, only: [:index, :show]
-   root to: "pages#index"
+  
+  root to: "pages#index"
+  resources :meetings, only: [:new, :create, :show, :update, :destroy] do
+      member do
+        get 'howdiditgo'
+      end
+  end
+
   resources :users, only: [:create, :update]
   get "profiles/edit", to: 'users#edit', as: :edit_profile
   get "profiles/:id", to: 'users#profile', as: :profile
+  resources :admin, only: [:index , :show]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
