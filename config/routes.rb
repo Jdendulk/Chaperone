@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
   resources :friends
 
+  resources :friend_meetings, only: [:create, :destroy]
+
 
   resources :pages, only: [:index, :show]
 
