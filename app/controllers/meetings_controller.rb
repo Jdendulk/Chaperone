@@ -51,6 +51,10 @@ class MeetingsController < ApplicationController
     redirect_to meeting_path, status: :see_other
   end
 
+  def howdiditgo
+    @meeting = Meeting.find(params[:id])
+  end
+
   private
 
   def meeting_params

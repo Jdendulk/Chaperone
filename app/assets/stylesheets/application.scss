@@ -10,21 +10,21 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "meetings/index";
 
 // link to mapbox
 @import url("https://api.mapbox.com/mapbox-gl-js/v3.1.2/mapbox-gl.css");
 
-
-
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 20px;
+  background-image: url(index.svg);
+
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
-h1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
+@media (min-width: 430px) {
+  .container {
+    max-width: 415px; /* Change this value as needed */
+  }
 }
