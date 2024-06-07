@@ -5,7 +5,6 @@ class LocationsController < ApplicationController
 
   def create
     # binding.break
-    puts "HEEEEEEER"
 
     latitude = params[:latitude]
     longitude = params[:longitude]
