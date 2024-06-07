@@ -28,3 +28,19 @@ body {
     max-width: 415px; /* Change this value as needed */
   }
 }
+
+
+.initial {
+  opacity: 1; /* Start hidden */
+  transition: opacity 1.5s ease-in-out; /* Ensure transition is defined here as well */
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.fade-out {
+  opacity: .4;
+  transition: opacity 1s ease-out;
+}
