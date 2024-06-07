@@ -1,0 +1,25 @@
+.face {
+  font-size: 48px;
+}
+
+.card {
+  padding: 80px;
+}
+
+.face-buttons {
+  background-color: $gray;
+}
+
+.visible {
+  display: block;
+  transition: 1200ms;
+
+}
+
+.card-icon {
+  font-size: 48px;
+}
+
+#display-card {
+  display: none;
+}

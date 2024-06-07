@@ -7,9 +7,7 @@ Rails.application.routes.draw do
       get "/chat", to: "meetings#chat"
       get 'howdiditgo'
     end
-
     resources :messages, only: [:create]
-
     resources :locations, only: [:create, :edit]
   end
   resources :friends
