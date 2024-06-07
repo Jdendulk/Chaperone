@@ -1,10 +1,12 @@
-<div class="container p-3 mt-3" data-controller="meeting-locations">
+
+<div class="container p-3 mt-3" data-controller="meeting-locations" data-meeting-locations-meeting-value="<%= @meeting.id %>">>
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
     <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
     meeting
     </h1>
   </div>
+
   <h2 id="count-down" class="mb-3">01:28</h2>
 
   <%= link_to do %>

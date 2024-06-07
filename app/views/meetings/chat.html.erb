@@ -1,15 +1,19 @@
-<div class="container chat">
+<div class="container chat" id="chat" data-controller="meeting-chat" data-meeting-chat-meeting-id-value="<%= @meeting.id %>">
   <h1>Meeting with <%= @meeting.user.first_name %></h1>
-  <div class="messages">
+
+  <div class="messages" data-meeting-chat-target="messages">
     <%= @meeting.messages.count %>
     <% @meeting.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.first_name %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
+      <%= render 'messages/message', message: message %>
     <% end %>
   </div>
+
+  <%= simple_form_for [ @meeting, Message.new ], html: { data: { 'meeting-chat-target': "form" } } do |form| %>
+    <div class="form-group">
+      <%= form.text_area :content, rows: 3, class: "form-control", data: { 'meeting-chat-target': "input" }, placeholder: "Type a message..." %>
+    </div>
+    <div class="form-group">
+      <%= form.submit "Send", class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </div>

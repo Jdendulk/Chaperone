@@ -41,9 +41,9 @@ meetings = 5.times.map do |i|
     start_time: "08:00",
     end_time: "10:00",
     date: Date.today + i,
-    who: "Who#{i+1}",
-    what: "What#{i+1}",
-    initial_meet_location: "Location#{i+1}",
+    who: "Who#{i + 1}",
+    what: "What#{i + 1}",
+    initial_meet_location: "Location#{i + 1}",
     fake_call: Time.now + i.hours,
     how_did_it_go: "Good"
   )
