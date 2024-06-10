@@ -7,15 +7,7 @@
     </h1>
   </div>
 
-  <h2 id="count-down" class="mb-3">01:28</h2>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', (e) => {
-      const  = const meetingEndTime = new Date("<%= @meeting.end_time %>").getTime()
-        arguments);
-    })
-
-  </script>
+  <h2 class="mb-3" data-controller="countdown" data-countdown-end-time-value="<%= @meeting.duration %>">Initial Value</h2>
 
   <%= link_to do %>
     <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i>  extend  </p>
@@ -43,18 +35,13 @@
     </div>
     <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
       <%= link_to  howdiditgo_meeting_path do %>
-        <div class="text text-primary">safe</div>
+        <div class="text text-primary" id= "safe-button">safe</div>
       <% end %>
     </div>
     <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
       <div class="text">help</div>
     </div>
   </div>
-
-
-
-
-
 
 </div>
     <ul>

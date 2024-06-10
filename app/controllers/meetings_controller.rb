@@ -38,9 +38,11 @@ class MeetingsController < ApplicationController
 
   #updating of the meeting information
   def update
-    @meeting = Meeting.find(params[:id])
-    @meeting.update(meeting_params)
-  redirect_to meeting_path(@meeting)
+    raise
+    meeting = Meeting.find(params[:id])
+    meeting.update(end_time: Time.now)
+
+    render json: { message: 'Thanks for telling us you are safe'}
   end
 
   # will this allow the user to cancel a future meeting?

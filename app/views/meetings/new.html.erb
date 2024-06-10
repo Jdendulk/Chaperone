@@ -4,17 +4,16 @@
 <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
   <div class="form-group position-relative">
     <%= f.label :who, class: "form-label" %>
-    <%= f.input :who, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""}, label: false %>
+    <%= f.input :who, placeholder: 'Jessie...no idea...none of your business ;)', input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""}, label: false %>
   </div>
     <div class="form-group">
-    <%= f.input :what, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :what, placeholder: 'heading home with a cute guy', input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
   </div>
   <div class="form-group">
-    <%= f.input :start_time, html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :start_time, placeholder: '11AM', html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
   </div>
   <div class="form-group">
-    <%= f.input :end_time, html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
-  </div>
+    <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""}, placeholder: '2 hours' %></div>
   <div class="form-group">
     <%= f.input :date, html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
   </div>
