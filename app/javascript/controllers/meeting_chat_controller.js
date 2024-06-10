@@ -68,7 +68,7 @@ export default class extends Controller {
       this.formTarget.insertAdjacentElement("beforebegin", errorExplanation);
       setTimeout(() => {
         errorExplanation.remove();
-      }, 200000);
+      }, 2000);
     }
   }
 }
