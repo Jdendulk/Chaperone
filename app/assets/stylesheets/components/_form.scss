@@ -2,6 +2,8 @@
   background-color: $gray;
   color: white;
   transition: 500ms;
+  height: 80px; /* Ensure consistent height */
+  margin-top: 10px;
 }
 
 .form-control:focus {
@@ -19,6 +21,7 @@
 
 .form-group {
   position: relative;
+  margin-bottom: 20px;
 }
 
 .form-label {

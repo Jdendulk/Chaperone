@@ -9,15 +9,36 @@ class MessagesController < ApplicationController
     @message.meeting = @meeting
     @message.user = current_user
 
+    chaperone_bot = User.find_by(email: "chaperone@chaperone.com")
+    @gpt_message = Message.new(content: gpt_response)
+    @gpt_message.user = chaperone_bot
+    @gpt_message.meeting = @meeting
+    @gpt_message.save
+    puts @gpt_message
+
     if @message.save
       # Broadcast the message to the chat channel
       ActionCable.server.broadcast "meeting_chat_#{@message.meeting_id}_channel", {
         message: render_message(@message)
       }
+      ActionCable.server.broadcast "meeting_chat_#{@message.meeting_id}_channel", {
+        message: render_message(@gpt_message)
+      }
       head :ok
     else
       render "meetings/chat", status: :unprocessable_entity
     end
+  end
+
+  def gpt_response
+    client = OpenAI::Client.new
+    chaptgpt_response = client.chat(parameters: {
+      model: "gpt-3.5-turbo",
+      messages: [
+        {role: "system", content: "You are Chaperone, a safe, secure, and friendly assistant designed to support users on dates. Your primary role is to provide comfort, reassurance, and practical advice to users who may feel uncomfortable or anxious. Respond with empathy, understanding, and helpful suggestions to ensure the user feels safe and supported at all times."},
+        {role: "user", content: params["message"]["content"]}],
+    })
+    return chaptgpt_response["choices"][0]["message"]["content"]
   end
 
   private
