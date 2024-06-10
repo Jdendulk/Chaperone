@@ -8,6 +8,7 @@
   background-color: $yellow;
   color: black;
   transition: 500ms;
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
 }
 
 .form-control, .form-submit {
@@ -53,8 +54,12 @@
 }
 
 
-
 input[type="date"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+
+.control {
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
 }

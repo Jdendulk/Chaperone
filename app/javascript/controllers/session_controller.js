@@ -11,6 +11,6 @@ export default class extends Controller {
       setInterval(() => {
         this.imageTarget.classList.toggle("fade-in")
         this.imageTarget.classList.toggle("fade-out")
-      }, 1200) // Change 2000 to the desired interval in milliseconds
+      }, 1200) // Change to the desired interval in milliseconds
     }
   }
