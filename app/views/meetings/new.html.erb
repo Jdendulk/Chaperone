@@ -4,31 +4,32 @@
 <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
   <div class="form-group position-relative">
     <%= f.label :who, class: "form-label" %>
-    <%= f.input :who, placeholder: 'Jessie...no idea...none of your business ;)', input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""}, label: false %>
+
+    <%= f.input :who, placeholder: 'Jessie...no idea...none of your business ;)', input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""}, label: false %>
   </div>
     <div class="form-group">
-    <%= f.input :what, placeholder: 'heading home with a cute guy', input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :what, placeholder: 'heading home with a cute guy', input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""} %>
   </div>
   <div class="form-group">
-    <%= f.input :start_time, placeholder: '11AM', html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :start_time, placeholder: '11AM', html5: true, input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""} %>
   </div>
   <div class="form-group">
-    <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""}, placeholder: '2 hours' %></div>
+    <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""}, placeholder: '2 hours' %></div>
   <div class="form-group">
-    <%= f.input :date, html5: true, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :date, html5: true, input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""} %>
   </div>
   <div class="form-group">
-    <%= f.input :initial_meet_location, input_html: { class: 'form-control border-0 rounded-pill' }, label_html: {class: ""} %>
+    <%= f.input :initial_meet_location, input_html: { class: 'form-control border-0 rounded-pill control' }, label_html: {class: ""} %>
   </div>
-    <div class="share-friends d-flex form-group">
+    <div class="share-friends d-flex form-group control">
       <p class="form-label">share </p>
-    <div class="grid">
-      <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
-      <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-      <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
-      <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-      <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-      <img class="avatar-large item" alt="avatar-large" src="https://vuesax.com/avatars/avatar-3.png" />
+    <div class="grid ">
+      <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light ">C<i class="fa-solid fa-check"></i></div>
+        <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+        <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" />
+        <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+        <img class="avatar-large item" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+        <img class="avatar-large item" alt="avatar-large" src="https://vuesax.com/avatars/avatar-3.png" />
     </div>
 
   </div>
