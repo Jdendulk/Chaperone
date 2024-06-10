@@ -59,7 +59,23 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+input[type="time"] > option {
+  color: red !important;
+}
+
 
 .control {
   box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
+}
+
+.control::placeholder {
+  color: rgba(256,256,256,0.5);
+}
+
+::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-week-field, ::-webkit-datetime-edit-day-field,::-webkit-datetime-edit, ::-webkit-datetime-edit-fields-wrapper, ::-webkit-datetime-edit-text, ::-webkit-datetime-edit-year-field {
+  color: rgba(256,256,256,0.5);
+}
+
+input[type="time"] {
+  color: red;
 }
