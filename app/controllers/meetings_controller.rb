@@ -23,6 +23,7 @@ class MeetingsController < ApplicationController
         lng: location.longitude
       }
     end
+    @timer = @meeting.duration
   end
 
   #chatroom
@@ -38,7 +39,6 @@ class MeetingsController < ApplicationController
 
   #updating of the meeting information
   def update
-    raise
     meeting = Meeting.find(params[:id])
     meeting.update(end_time: Time.now)
 
