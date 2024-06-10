@@ -48,8 +48,6 @@ export default class extends Controller {
     }).then(response => {
       if (response.ok) {
         this.inputTarget.value = ""; // Clear the input field
-        // HERE is where we trigger chat-gpt to respond
-
       } else {
         response.text().then(text => this.displayErrorMessage(text));
       }
