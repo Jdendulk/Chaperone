@@ -7,14 +7,14 @@ Rails.application.routes.draw do
       get "/chat", to: "meetings#chat"
       get 'howdiditgo'
     end
-
+    resources :messages, only: [:create]
     resources :locations, only: [:create, :edit]
   end
   resources :friends
   resources :friend_meetings, only: [:create, :destroy]
 
 
-  resources :pages, only: [:index, :show]
+  resources :pages, only: [:index, :show] do
 
     resources :messages, only: [:create]
   end
