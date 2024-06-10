@@ -1,10 +1,14 @@
 <div class="container chat" id="chat" data-controller="meeting-chat" data-meeting-chat-meeting-id-value="<%= @meeting.id %>">
-  <h1>Meeting with <%= current_user.email %></h1>
+  <%# <h1>Meeting with <%= current_user.email %>
 
   <div class="messages" data-meeting-chat-target="messages">
+
+
     <%= @meeting.messages.count %>
     <% @meeting.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+      <%# <% if message.user = current_user  %>
+        <%= render 'messages/message', message: message %>
+      <%# <% end %>
     <% end %>
   </div>
 
