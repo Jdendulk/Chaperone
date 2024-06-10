@@ -34,6 +34,13 @@ users = 5.times.map do |i|
   )
 end
 
+User.create!(
+  first_name: "Chaperone Bot",
+  email: "chaperone@chaperone.com",
+  password: "password",
+  admin: true
+)
+
 # Create Meetings
 meetings = 5.times.map do |i|
   meeting = Meeting.create!(
@@ -56,8 +63,6 @@ meetings = 5.times.map do |i|
 
   meeting
 end
-
-
 
 # Create Friends
 friends = 5.times.map do |i|
