@@ -40,17 +40,6 @@ class MeetingsController < ApplicationController
   # end
 
   # chatroom and code to ensure meeting privacy
-  # def chat
-  #   @meeting = Meeting.find(params[:id])
-
-  #   if @meeting.nil? || @meeting.user != current_user
-  #     # User is allowed to access the meeting
-  #   else
-  #     # User is not allowed to access the meeting, redirect to home page
-  #     redirect_to root_path, alert: "You are not authorized to access this page."
-  #   end
-  # end
-  # chatroom and code to ensure meeting privacy
   def chat
     @meeting = Meeting.find_by(id: params[:id])
 

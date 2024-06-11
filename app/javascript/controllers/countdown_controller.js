@@ -28,7 +28,22 @@ export default class extends Controller {
 
   disconnect() {
     clearInterval(this.countdown)
-  }
+    // fetch requets which will do a patch update to meeting which will update current duration (this.hour, this.minute)
+
+    }
+    // add 15 function - dont disable the button normal behaviours, fetch what the current duration is and set this.hour, this.minute (from connect) and add 15,
+
+
+
+
+
+
+
+
+
+
+
+
 
   // updateTimer() {
   //   const currentTime = Math.floor(Date.now() / 1000);
