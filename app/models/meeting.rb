@@ -6,4 +6,5 @@ class Meeting < ApplicationRecord
 
   validates :duration, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :start_time, presence: true
+  validates :date, presence: true
 end

@@ -46,11 +46,10 @@
     <% end %>
 
   </div>
+  <ul>
+    <% @meeting.friend_meetings.each do |friend_meeting| %>
+      <li><%= friend_meeting.friend.email %></li>
+    <% end %>
+  </ul>
+  <div class="spacer"></div>
 </div>
-
-<ul>
-  <% @meeting.friend_meetings.each do |friend_meeting| %>
-    <li><%= friend_meeting.friend.email %></li>
-  <% end %>
-</ul>
-<div class="spacer"></div>

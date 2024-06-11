@@ -22,7 +22,6 @@ export default class extends Controller {
     // console.log(this.minutes);
     this.startCountdown();
   }
-
   disconnect() {
     clearInterval(this.countdown)
   }
