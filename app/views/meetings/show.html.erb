@@ -15,22 +15,24 @@
   <% end %>
 
   <h2 class="text-white fw-light mb-2">location</h2>
-  <div class="map mb-3"
-      id="map"
-      style="margin: 0 -16px;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
- <h2 class="text-white fw-light">following</h2>
+</div>
 
-    <div class="share-friends d-flex form-group">
-      <p class="form-label">active </p>
-      <div class="grid">
-        <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
-      </div>
+<div class="map mb-3"
+    id="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
+<div class="container p-3 mt-3">
+  <h2 class="text-white fw-light">following</h2>
+  <div class="share-friends d-flex form-group">
+    <p class="form-label">active </p>
+    <div class="grid">
+      <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
     </div>
+  </div>
+
   <div class="buttons d-flex gap-2 mb-3">
     <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
       <div class="text text-center">its getting <br>weird</div>
@@ -44,13 +46,10 @@
       <div class="text">SOS</div>
     </div>
   </div>
-
+  <ul>
+    <% @meeting.friend_meetings.each do |friend_meeting| %>
+      <li><%= friend_meeting.friend.email %></li>
+    <% end %>
+  </ul>
+  <div class="spacer"></div>
 </div>
-    <ul>
-      <% @meeting.friend_meetings.each do |friend_meeting| %>
-        <li><%= friend_meeting.friend.email %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<div class="spacer"></div>
