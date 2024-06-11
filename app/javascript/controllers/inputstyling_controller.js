@@ -2,14 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="inputstyling"
 export default class extends Controller {
-
+  static targets = ['dropdown']
 
   connect() {
-    console.log("connected!!!")
-    const input = document.querySelector('#meeting_duration :first-child')
-    const select = document.querySelector('#meeting_duration')
-    input.disabled = true
-    // input.style.color = "red";
-    // select.value.color = "red";
+    if (this.dropdownTarget.value === '') {
+      this.dropdownTarget.style.color = "rgba(256,256,256,0.5)"
+    } else {
+      this.dropdownTarget.style.color = "white"
+    }
+  }
+
+  updateColor() {
+    if (this.dropdownTarget.value === '') {
+      this.dropdownTarget.style.color = "rgba(256,256,256,0.5)"
+    } else {
+      this.dropdownTarget.style.color = "white"
+    }
   }
 }

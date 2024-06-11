@@ -1,30 +1,30 @@
-.form-control {
+.meeting-form-control {
   background-color: $gray;
   color: white;
   transition: 500ms;
   height: 80px; /* Ensure consistent height */
-  margin-top: 10px;
+  // margin-top: 10px;
 }
 
-.form-control:focus {
+.meeting-form-control:focus {
   background-color: $yellow;
   color: black;
   transition: 500ms;
   box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
 }
 
-.form-control, .form-submit {
+.meeting-form-control, .form-submit {
   height: 80px;
   padding-left: 30px;
   padding-top: 12px;
 }
 
-.form-group {
+.meeting-form-group {
   position: relative;
   margin-bottom: 20px;
 }
 
-.form-label {
+.meeting-form-label {
   color: #e3e3e3;
   font-size: 14px;
   text-transform: lowercase;
@@ -39,7 +39,6 @@
   border-radius: 40px;
   padding: 16px;
   margin-bottom: 1em;
-
 }
 
 .default-icon {
@@ -62,11 +61,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-input[type="time"] > option {
-  color: red !important;
-}
-
-
 .control {
   box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
 }
@@ -79,6 +73,8 @@ input[type="time"] > option {
   color: rgba(256,256,256,0.5);
 }
 
-.control-top {
-  top:10px;
+.meeting_duration {
+  .meeting-form-control {
+    color: rgba(256,256,256,0.5);
+  }
 }
