@@ -22,10 +22,6 @@ export default class extends Controller {
     // console.log(this.minutes);
     this.startCountdown();
   }
-
-  // extend meeting
-
-
   disconnect() {
     clearInterval(this.countdown)
     // fetch requets which will do a patch update to meeting which will update current duration (this.hour, this.minute)
