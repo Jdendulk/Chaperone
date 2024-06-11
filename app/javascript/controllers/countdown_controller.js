@@ -22,10 +22,6 @@ export default class extends Controller {
     // console.log(this.minutes);
     this.startCountdown();
   }
-
-  // extend meeting
-
-
   disconnect() {
     clearInterval(this.countdown)
   }

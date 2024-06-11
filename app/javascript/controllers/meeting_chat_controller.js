@@ -60,12 +60,13 @@ export default class extends Controller {
   displayErrorMessage(message) {
     const existingErrorMessage = document.getElementById("error_message");
     if (!existingErrorMessage) {
-      const errorExplanation = document.createElement("div");
-      errorExplanation.id = "error_explanation";
-      errorExplanation.innerHTML = `<ul id="error_message"><li>${message}</li></ul>`;
-      this.formTarget.insertAdjacentElement("beforebegin", errorExplanation);
+      this.inputTarget.style.border = "3px solid red"
+      // const errorExplanation = document.createElement("div");
+      // errorExplanation.id = "error_explanation";
+      // errorExplanation.innerHTML = `<ul id="error_message"><li>${message}</li></ul>`;
+      // this.formTarget.insertAdjacentElement("beforebegin", errorExplanation);
       setTimeout(() => {
-        errorExplanation.remove();
+        this.inputTarget.style.border = "none"
       }, 2000);
     }
   }
