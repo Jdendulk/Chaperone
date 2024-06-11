@@ -1,3 +1,15 @@
 .meeting-chat-message {
   color: white;
 }
+
+.chat {
+  height: 815px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .messages {
+    max-height: 675px;
+    overflow: scroll;
+  }
+}

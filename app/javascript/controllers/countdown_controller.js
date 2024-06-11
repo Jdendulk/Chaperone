@@ -23,6 +23,9 @@ export default class extends Controller {
     this.startCountdown();
   }
 
+  // extend meeting
+
+
   disconnect() {
     clearInterval(this.countdown)
   }

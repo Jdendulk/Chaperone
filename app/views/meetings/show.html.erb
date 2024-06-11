@@ -34,17 +34,18 @@
   </div>
 
   <div class="buttons d-flex gap-2 mb-3">
-    <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
-      <div class="text text-center">its getting <br>weird</div>
+    <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
+      <div class="text">SOS</div>
     </div>
     <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
       <%= link_to  howdiditgo_meeting_path do %>
         <div class="text text-primary" id= "safe-button">safe</div>
       <% end %>
     </div>
-    <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
-      <div class="text">SOS</div>
+    <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
+      <div class="text text-center">its getting <br>weird</div>
     </div>
+
   </div>
   <ul>
     <% @meeting.friend_meetings.each do |friend_meeting| %>

@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
   # for functionality of the simple form in create
   def options_for_meeting_duration
     [
-      ['Select a time'],
-      ['15 minutes', 15],
+      ['Select a time', nil],
       ['30 minutes', 30],
       ['45 minutes', 45],
       ['1 hour', 60],

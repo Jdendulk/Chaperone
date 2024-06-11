@@ -34,18 +34,35 @@ class MeetingsController < ApplicationController
     @timer = @meeting.duration
   end
 
-  #chatroom
-  def chat
-    @meeting = Meeting.find(params[:id])
-  end
-
-  # how do we go about updating the long/lat throughout the meeting?
-
-  # def update_location - need to create a long/lat table, as a meeting has many positions
-
+  # chatroom
+  # def chat
+  #   @meeting = Meeting.find(params[:id])
   # end
 
-  #updating of the meeting information
+  # chatroom and code to ensure meeting privacy
+  # def chat
+  #   @meeting = Meeting.find(params[:id])
+
+  #   if @meeting.nil? || @meeting.user != current_user
+  #     # User is allowed to access the meeting
+  #   else
+  #     # User is not allowed to access the meeting, redirect to home page
+  #     redirect_to root_path, alert: "You are not authorized to access this page."
+  #   end
+  # end
+  # chatroom and code to ensure meeting privacy
+  def chat
+    @meeting = Meeting.find_by(id: params[:id])
+
+    if @meeting.nil? || @meeting.user != current_user
+      # User is not allowed to access the meeting, redirect to home page
+      redirect_to root_path, alert: "You are not authorized to access this page."
+    else
+      # User is allowed to access the meeting
+    end
+  end
+
+  #updating of the meeting information tt
   def update
     meeting = Meeting.find(params[:id])
     meeting.update(end_time: Time.now)
