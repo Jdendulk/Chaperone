@@ -52,7 +52,8 @@ meetings = 5.times.map do |i|
     what: "What#{i + 1}",
     initial_meet_location: "Location#{i + 1}",
     fake_call: Time.now + i.hours,
-    how_did_it_go: "Good"
+    how_did_it_go: "Good",
+    duration: 200
   )
 
   Location.create!(
