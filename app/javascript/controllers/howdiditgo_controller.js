@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["card"]
 
   connect() {
-    console.log("connected")
+    // console.log("connected")
   }
 
   togglecard() {

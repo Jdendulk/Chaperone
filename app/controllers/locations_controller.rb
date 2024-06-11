@@ -11,8 +11,11 @@ class LocationsController < ApplicationController
     puts latitude
     puts longitude
     @meeting = Meeting.find(params[:meeting_id])
-    @location = Location.new(latitude: latitude, longitude: longitude, meeting: @meeting)
-    @location.save
+    @location = Location.find_by(meeting: @meeting, latitude: latitude, longitude: longitude)
+    if @location.nil?
+      @location = Location.new(latitude: latitude, longitude: longitude, meeting: @meeting)
+      @location.save
+    end
 
     respond_to do |format|
       format.json { render json: @location }

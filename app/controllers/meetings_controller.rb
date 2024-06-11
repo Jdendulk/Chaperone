@@ -20,9 +20,17 @@ class MeetingsController < ApplicationController
     @markers = @meeting.locations.map do |location|
       {
         lat: location.latitude,
-        lng: location.longitude
+        lng: location.longitude,
+        marker_html: render_to_string(partial: "marker")
       }
     end
+    # unless @meeting.locations.last.nil?
+    #   @markers = [{
+    #     lat: @meeting.locations.last.latitude,
+    #     lng: @meeting.locations.last.longitude,
+    #     marker_html: render_to_string(partial: "marker")
+    #   }]
+    # end
     @timer = @meeting.duration
   end
 

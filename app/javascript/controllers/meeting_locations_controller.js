@@ -18,6 +18,7 @@ export default class extends Controller {
 
   success(pos) {
     const crd = pos.coords;
+    console.log(crd);
     const csrf = document.querySelector('meta[name="csrf-token"]').content
 
     let formData = new FormData();
@@ -31,7 +32,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
       })
       .catch(error => {
         console.error('Error updating location:', error.message)
