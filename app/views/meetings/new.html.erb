@@ -2,7 +2,7 @@
 <div class="container p-3 mt-3" data-controller="inputstyling">
   <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %> tell us more</h1>
 
-  <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
+  <%= simple_form_for @meeting, html: { class: 'form-horizontal ' } do |f| %>
     <div class="meeting-form-group">
       <%= f.input :who, placeholder: 'Jessie Rodgers', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
     </div>
@@ -12,15 +12,15 @@
     </div>
 
     <div class="meeting-form-group">
-      <%= f.input :start_time, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control'},  label_html: { class: 'meeting-form-label' } %>
+      <%= f.input :start_time, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } },  label_html: { class: 'meeting-form-label' } %>
     </div>
 
     <div class="meeting-form-group">
-      <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "dropdown", "action": "change->inputstyling#updateColor" } }, label_html: { class: 'meeting-form-label' }, selected: 0 %>
+      <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } }, label_html: { class: 'meeting-form-label' }, selected: 0 %>
     </div>
 
     <div class="meeting-form-group">
-      <%= f.input :date, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control' },  label_html: { class: 'meeting-form-label ' }   %>
+      <%= f.input :date, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } },  label_html: { class: 'meeting-form-label ' }   %>
     </div>
 
     <div class="meeting-form-group">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="meeting-form-group">
-      <%= f.submit class: 'btn btn-outline-success w-100 rounded-pill form-submit select' %>
+      <%= f.submit class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn' %>
     </div>
   <% end %>
 </div>
