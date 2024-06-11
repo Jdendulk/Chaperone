@@ -1,35 +1,39 @@
 <%# the styling for this page is inside _home.scss %>
 
 <div class="container p-3 mt-3"    >
+  <div class="logo d-flex justify-content-center align-items-center">
+    <%= image_tag "CHAPERONELOGO_ALPHA 4.svg", class:"mt-3 mb-2 "%>
+  </div>
 
-  <h1 class="text-white mb-4 text-center fw-light" >  <%= image_tag 'Star 2.svg' %>  home</h1>
+
+  <%# <h1 class="text-white mb-4 text-center fw-light" >  <%= image_tag 'Star 2.svg' %>  home</h1> %>
   <div class="d-flex flex-column gap-3 mb-4">
 
     <div class="d-flex justify-content-between">
       <%= link_to new_meeting_path do %>
-    <button class="btn btn-info main-btn fw-light" >date</button>
+    <button class="btn btn-info main-btn fw-light fs-5" >date</button>
     <% end %>
       <%= link_to new_meeting_path do %>
-    <button class="btn btn-danger main-btn  fw-light" >hook up</button>
+    <button class="btn btn-danger main-btn  fw-light text-white fs-5" >hook up</button>
       <% end %>
     </div>
 
     <div class="d-flex justify-content-between">
        <%= link_to new_meeting_path do %>
-      <button class="btn btn-success main-btn fw-light" >walking home</button>
+      <button class="btn btn-success main-btn fw-light fs-5" >walking home</button>
       <% end %>
         <%= link_to new_meeting_path do %>
-        <button class="btn btn-warning main-btn text-white fw-light" >night out</button>
+        <button class="btn btn-warning main-btn text-white fw-light fs-5" >night out</button>
         <% end %>
    </div>
 
     </div>
-  <h1 class="text-white fw-light fs-2 mb-4">resources</h1>
+  <h1 class="text-white fs-2 mb-4">resources</h1>
   <div class="article d-flex">
 
     <div class="col article-1">
-           <h2 class="text-white fw-bold fs-4 mb-4">Sexual Health</h2>
-           <p class="article-copy text-white fw-bold">We are the 56 Dean Street Sexual Health Clinic, located in the heart of Soho. Read on to find out how to access our services.</p>
+           <h2 class="text-white fw-light mb-4">Sexual Health</h2>
+           <p class="article-copy text-white ">We are the 56 Dean Street Sexual Health Clinic, located in the heart of Soho. Read on to find out how to access our services.</p>
           <p class="click-me text-success fw-bold click-me-1">click me <i class="fa-solid fa-arrow-right"></i> </p>
 
     </div>
@@ -45,8 +49,8 @@
     <%= image_tag 'Ellipse 10.svg', class: "ellipse-img" %>
   <% end %>
   <div class="col article-2">
-    <h2 class="text-white fw-bold fs-4 mb-4">Safe Sex</h2>
-    <p class="article-copy text-white fw-bold">Find out about the risks of getting a sexually transmitted infection (STI) from different sexual activities.</p>
+    <h2 class="text-white fw-light fs-4 mb-4">Safe Sex</h2>
+    <p class="article-copy text-white">Find out about the risks of getting a sexually transmitted infection (STI) from different sexual activities.</p>
     <p class="click-me text-success fw-bold click-me-2"><i class="fa-solid fa-arrow-left"></i> click me </p>
 
   </div>
@@ -55,8 +59,8 @@
  <div class="article d-flex">
 
   <div class="col article-3">
-    <h2 class="text-white fw-bold fs-4 mb-4">Staying Safe</h2>
-    <p class="article-copy text-white fw-bold">Here are a few tips to help you enjoy London safely, whether you're a first-time visitor, a regular traveller or a local.</p>
+    <h2 class="text-white fs-4 fw-light mb-4">Staying Safe</h2>
+    <p class="article-copy text-white">Here are a few tips to help you enjoy London safely, whether you're a first-time visitor, a regular traveller or a local.</p>
     <p class="click-me text-success fw-bold click-me-3">click me <i class="fa-solid fa-arrow-right"></i></p>
 
   </div>
