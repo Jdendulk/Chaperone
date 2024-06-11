@@ -54,7 +54,7 @@ class MeetingsController < ApplicationController
     end
   end
 
-  #updating of the meeting information
+  #updating of the meeting information tt
   def update
     meeting = Meeting.find(params[:id])
     meeting.update(end_time: Time.now)
