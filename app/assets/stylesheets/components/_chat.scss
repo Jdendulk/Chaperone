@@ -9,18 +9,30 @@
   margin-bottom: 8px;
   border-radius: 30px;
   text-align: end;
-  box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
+  box-shadow: 0px 0px 6px rgba(256,256,256,0.3);
   .msg-info {
     color: rgba(256,256,256,0.5);
   }
 }
+
+.txt {
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
+  padding: 16px;
+
+}
+
+.txt:hover {
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.3);
+
+}
+
 
 .meeting-chat-message[data-user-email="chaperone@chaperone.com"] {
   background-color: $success;
   padding: 24px;
   color: black; /* Example styling for special users */
   text-align: start;
-  box-shadow: 0px 0px 6px rgba(256,256,256,0.3);
+  box-shadow: 0px 0px 6px rgba(256,256,256,0.4);
   .msg-info {
     color: rgba(0,0,0,0.5);
   }
