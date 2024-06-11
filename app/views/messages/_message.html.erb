@@ -1,7 +1,10 @@
-<div class="meeting-chat-message" id="message-<%= message.id %>">
+<div class="meeting-chat-message" id="message-<%= message.id %>" data-user-email="<%= message.user.email %>">
   <small>
-    <strong><%= message.user.email %></strong>
-    <i><%= message.created_at.in_time_zone("London").strftime("%a %b %e at %l:%M %p") %></i>
+    <strong class="msg-info"><%= message.user.email %></strong> <br>
+
   </small>
-  <p><%= message.content %></p>
+  <p class="mt-3"><%= message.content %></p>
+  <small>
+     <i class="msg-info msg-time"><%= message.created_at.in_time_zone("London").strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
 </div>

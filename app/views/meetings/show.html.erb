@@ -1,9 +1,8 @@
-
-<div class="container p-3 mt-3" data-controller="meeting-locations" data-meeting-locations-meeting-value="<%= @meeting.id %>">>
+<div class="container p-3 mt-3" data-controller="meeting-locations" data-meeting-locations-meeting-value="<%= @meeting.id %>">
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
-    <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
-    meeting
+      <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
+      meeting
     </h1>
   </div>
 
@@ -34,23 +33,24 @@
   </div>
 
   <div class="buttons d-flex gap-2 mb-3">
-    <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
+    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-danger text-white d-flex align-items-center justify-content-center' do %>
       <div class="text">SOS</div>
-    </div>
+    <% end %>
     <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
-      <%= link_to  howdiditgo_meeting_path do %>
-        <div class="text text-primary" id= "safe-button">safe</div>
+      <%= link_to howdiditgo_meeting_path do %>
+        <div class="text text-primary" id="safe-button">safe</div>
       <% end %>
     </div>
-    <div class="meeting-btn bg-warning text-white d-flex align-items-center justify-content-center">
+    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-warning text-white d-flex align-items-center justify-content-center' do %>
       <div class="text text-center">its getting <br>weird</div>
-    </div>
+    <% end %>
 
   </div>
-  <ul>
-    <% @meeting.friend_meetings.each do |friend_meeting| %>
-      <li><%= friend_meeting.friend.email %></li>
-    <% end %>
-  </ul>
-  <div class="spacer"></div>
 </div>
+
+<ul>
+  <% @meeting.friend_meetings.each do |friend_meeting| %>
+    <li><%= friend_meeting.friend.email %></li>
+  <% end %>
+</ul>
+<div class="spacer"></div>
