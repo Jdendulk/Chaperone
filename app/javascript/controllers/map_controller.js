@@ -8,6 +8,7 @@ export default class extends Controller {
     markers: Array
   }
   connect() {
+    console.log("adding for git merge conflict");
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
