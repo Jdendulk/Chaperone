@@ -66,10 +66,20 @@ meetings = 5.times.map do |i|
 end
 
 # Create Friends
-friends = 5.times.map do |i|
+image_urls = [
+  "https://kitt.lewagon.com/placeholder/users/arthur-littm",
+  "https://kitt.lewagon.com/placeholder/users/sarahlafer",
+  "https://kitt.lewagon.com/placeholder/users/krokrob",
+  "https://kitt.lewagon.com/placeholder/users/cveneziani",
+  "https://vuesax.com/avatars/avatar-3.png"
+]
+
+friends = image_urls.each_with_index do |url, i|
   Friend.create!(
     user_id: users[i].id,
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    image_url: url,
+    phone: "07912611841"
   )
 end
 
