@@ -14,15 +14,22 @@
   </head>
 
   <body >
+
     <%= render "shared/flashes" %>
     <% if !@no_mobile_nav %>
       <%= render "shared/navbar" %>
     <% end %>
 
     <%= yield %>
+
+
+    <%= render "shared/mobile_nav" %>
+    <%= render "shared/callmodal" %>
+
     <% if !@no_mobile_nav %>
       <%= render "shared/mobile_nav" %>
     <% end %>
+
 
   </body>
 </html>

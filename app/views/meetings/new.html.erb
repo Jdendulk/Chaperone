@@ -35,9 +35,17 @@
       </div>
     </div>
 
+
     <div class="meeting-form-group">
-      <%= f.submit class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn' %>
+
+  <%= f.submit 'Submit', class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn', data: { bs_toggle: "modal", bs_target: "#exampleModal" } %>
+</div>
+
     </div>
+
+
   <% end %>
 </div>
+
+<%= render "shared/new_session_modal" %>
 <div class="spacer"></div>
