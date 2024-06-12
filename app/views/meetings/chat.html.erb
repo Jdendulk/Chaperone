@@ -21,6 +21,9 @@
     <div class="form-group">
       <%= form.submit "Send", class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn mb-3', data: { action: "meeting-chat#submit" } %>
     </div>
+    <div class="form-group">
+      <%= link_to "Back", meeting_path(@meeting), class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn mb-3', style: "padding-top: 25px;" %>
+    </div>
   <% end %>
 </div>
 

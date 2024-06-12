@@ -40,7 +40,11 @@
       <%# <button class="btn btn-outline-success w-100 rounded-pill form-submit select-btn" data-bs-toggle="modal" data-bs-taget="#exampleModal">Submit</button> %>
       <%= button_tag "Submit", class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn' %>
 
-      <%#= render "shared/new_session_modal", f: f %>
+
+  <%= f.submit 'Submit', class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn', data: { bs_toggle: "modal", bs_target: "#exampleModal" } %>
+
+</div>
+
     </div>
 
 
