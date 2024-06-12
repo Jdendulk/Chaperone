@@ -1,18 +1,41 @@
 <div class="container p-3 mt-3" data-controller="howdiditgo">
+  <div class="d-flex justify-content-center">
+    <%= image_tag "CHAPERONELOGO_ALPHA 4.svg", class:"mt-3 mb-4 " %>
+  </div>
 
-  <h1 class="text-white mb-5 text-center fw-light">  <%= image_tag 'Star 2.svg' %>  meeting</h1>
+  <h1 class="text-white fw-light fs-2 mb-4 text-start heading">how did it go?</h1>
+  <div class="d-flex gap-3 p-3 mb-5 rounded-5 face-buttons ">
+    <button class="btn flex-grow-1 rounded-3" data-action="click->howdiditgo#togglecardgood">
+      <i class="fa-regular fa-face-smile text-success face"></i>
+    </button>
+    <button class="btn flex-grow-1 rounded-3" data-action="click->howdiditgo#togglecardok">
+      <i class="fa-regular fa-face-meh face text-white"></i>
+    </button>
+    <button class="btn flex-grow-1 rounded-3" data-action="click->howdiditgo#togglecardbad">
+      <i class="fa-regular fa-face-frown text-danger face"></i>
+    </button>
+  </div>
+
+<div class="card-area" data-howdiditgo-target="cardarea">
 
 
-  <h1 class="text-white fw-light fs-2 mb-4 text-start">how did it go?</h1>
-<div class="d-flex gap-3 p-3 mb-5 rounded-5 face-buttons ">
+  <div class="card d-flex bg-success rounded-5 d-none" data-howdiditgo-target="cardgood">
+    <h4 class="mb-4">Great! See you again soon</h4>
+    <i class="fa-regular fa-face-smile-wink card-icon text-end text-primary"></i>
+  </div>
 
-  <button class="btn flex-grow-1 rounded-3" data-action="click->howdiditgo#togglecard"> <i class="fa-regular fa-face-smile text-success face"></i></button>
-  <button class="btn flex-grow-1 rounded-3"> <i class="fa-regular fa-face-meh face text-white"></i></button>
-  <button class="btn flex-grow-1 rounded-3"><i class="fa-regular fa-face-frown text-danger face"></i></button>
+  <div class="card d-flex bg-info rounded-5 d-none text-white" data-howdiditgo-target="cardok">
+    <h4 class="mb-5">Sorry to hear that, would you like to chat?</h4>
+    <p class="fs-4 text-end btn btn-outline-light rounded-pill py-4 px-5">chat now <i class="ms-2 fa-regular fa-message text-end text-white fs-2"></i></p>
+  </div>
+
+  <div class="card d-flex bg-danger rounded-5 d-none text-white" data-howdiditgo-target="cardbad">
+    <h4 class="mb-3 fw-light">That must of been difficult for you, we are here to support you.</h4>
+    <h4 class="mb-4 text-primary">Contact us below:</h4>
+    <p class="fs-4 text-end btn btn-outline-light rounded-pill py-4 px-5">chat now <i class="ms-2 fa-regular fa-message text-end text-primary fs-2"></i></p>
+    <p class="fs-4 text-start btn btn-outline-light rounded-pill py-4 px-5"><i class="fa-solid fa-phone me-3 text-primary fs-3"></i>call now </p>
+  </div>
 </div>
+<div class="spacer"></div>
 
-<div class="card d-flex bg-success rounded-5 d-none"  data-howdiditgo-target="card">
-  <h4 class="mb-4">See you again soon</h4>
-   <i class="fa-regular fa-face-smile-wink card-icon text-center "></i>
-</div>
 </div>

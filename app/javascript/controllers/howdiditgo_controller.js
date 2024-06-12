@@ -1,17 +1,36 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="howdiditgo"
 export default class extends Controller {
-  static targets = ["card"]
+  static targets = ["cardgood", "cardok", "cardbad", "cardarea"];
 
   connect() {
-    // console.log("connected")
+    // console.log(this.cardokTarget); //
   }
 
-  togglecard() {
-    this.cardTarget.classList.remove("d-none")
+  togglecardgood() {
+    this.cardgoodTarget.classList.add("d-none");
+    this.cardokTarget.classList.add("d-none");
+    this.cardbadTarget.classList.add("d-none");
+    this.cardgoodTarget.classList.remove("d-none");
+
 
   }
+
+  togglecardok() {
+    this.cardgoodTarget.classList.add("d-none");
+    this.cardokTarget.classList.add("d-none");
+    this.cardbadTarget.classList.add("d-none");
+    this.cardokTarget.classList.remove("d-none");
+  }
+
+  togglecardbad() {
+    this.cardgoodTarget.classList.add("d-none");
+    this.cardokTarget.classList.add("d-none");
+    this.cardbadTarget.classList.add("d-none");
+    this.cardbadTarget.classList.remove("d-none");
+  }
+
 
 
 }
