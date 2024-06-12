@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       get "/chat", to: "meetings#chat"
       get 'howdiditgo'
+      get 'share'
     end
     resources :messages, only: [:create]
     resources :locations, only: [:create, :edit]
@@ -14,9 +15,7 @@ Rails.application.routes.draw do
   resources :friends
   resources :friend_meetings, only: [:create, :destroy]
 
-
   resources :pages, only: [:index, :show] do
-
     resources :messages, only: [:create]
   end
 

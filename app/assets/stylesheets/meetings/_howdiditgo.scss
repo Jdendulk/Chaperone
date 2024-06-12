@@ -1,9 +1,9 @@
 .face {
   font-size: 48px;
 }
-
 .card {
-  padding: 80px;
+
+  padding: 60px;
 }
 
 .face-buttons {
@@ -13,7 +13,6 @@
 .visible {
   display: block;
   transition: 1200ms;
-
 }
 
 .card-icon {
@@ -22,4 +21,8 @@
 
 #display-card {
   display: none;
+}
+
+.heading {
+  text-shadow: 0 0 2px black;
 }
