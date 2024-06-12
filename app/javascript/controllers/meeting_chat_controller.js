@@ -14,6 +14,7 @@ export default class extends Controller {
         received: (data) => {
           console.log("Received data:", data);
           this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
+          this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
           this.inputTarget.value = "";
         }
       }
@@ -71,6 +72,7 @@ export default class extends Controller {
     }
   }
 }
+
 
 //user creates a message
 //the message should trigger a response from gpt

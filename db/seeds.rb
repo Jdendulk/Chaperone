@@ -79,7 +79,8 @@ friends = image_urls.each_with_index do |url, i|
     user_id: users[i].id,
     email: Faker::Internet.email,
     image_url: url,
-    phone: "07912611841"
+    phone: "07912611841",
+    name: "FirstName#{i + 1}"
   )
 end
 
