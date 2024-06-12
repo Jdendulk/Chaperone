@@ -1,7 +1,7 @@
 <div class="container p-3 mt-3" data-controller="inputstyling share" data-meeting-id="<%= @meeting.id %>">
   <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %> tell us more</h1>
 
-  <%= simple_form_for @meeting, html: { class: 'form-horizontal ' } do |f| %>
+  <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
     <div class="meeting-form-group">
       <%= f.input :who, placeholder: 'Jessie Rodgers', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
     </div>
@@ -37,15 +37,14 @@
 
 
     <div class="meeting-form-group">
+      <%# <button class="btn btn-outline-success w-100 rounded-pill form-submit select-btn" data-bs-toggle="modal" data-bs-taget="#exampleModal">Submit</button> %>
+      <%= button_tag "Submit", class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn' %>
 
-  <%= f.submit 'Submit', class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn', data: { bs_toggle: "modal", bs_target: "#exampleModal" } %>
-</div>
-
+      <%#= render "shared/new_session_modal", f: f %>
     </div>
 
 
   <% end %>
 </div>
 
-<%= render "shared/new_session_modal" %>
 <div class="spacer"></div>
