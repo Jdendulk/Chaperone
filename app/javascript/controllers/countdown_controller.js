@@ -1,14 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ['timer']
+
   countdown = null;
 
   static values = {
-    duration: Number
+    duration: Number,
+    meetingId: Number
   }
 
   connect() {
+    console.log(this.durationValue)
     this.hour = Math.floor(this.durationValue / 60)
+    console.log(this.hour);
     this.minutes = (this.durationValue - this.hour * 60)
     if (this.minutes == 0) {
       this.hour -= 1
@@ -18,13 +23,54 @@ export default class extends Controller {
     }
 
     this.seconds = 59
-    // console.log(this.hour);
-    // console.log(this.minutes);
+    console.log(this.hour);
+    console.log(this.minutes);
     this.startCountdown();
   }
+
+  get remainingDuration() {
+    return (this.hour * 60) + this.minutes;
+  }
+
+  extendSession(event) {
+    event.preventDefault()
+    this.initialiseTimer(this.remainingDuration + 15);
+  }
+
   disconnect() {
+    this.updateDuration()
     clearInterval(this.countdown)
   }
+  csrfToken() {
+    return document.querySelector("meta[name='csrf-token']").content
+  }
+
+  initialiseTimer(duration) {
+    clearInterval(this.countdown)
+
+    this.hour = Math.floor(duration / 60);
+    this.minutes = duration % 60;
+    this.seconds = 59;
+
+    this.updateDuration();
+
+    this.startCountdown()
+  }
+
+  updateDuration(){
+    let remainingDuration = (this.hour * 60) + this.minutes;
+    this.seconds < 30 ? remainingDuration - 1 : remainingDuration;
+    const csrf = this.csrfToken()
+    fetch(`/meetings/${this.meetingIdValue}/extend`, {
+      method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'X-CSRF-Token': csrf
+        },
+        body: JSON.stringify( { id: this.meetingIdValue, meeting: { duration: remainingDuration } } )
+      })
+    }
 
   // updateTimer() {
   //   const currentTime = Math.floor(Date.now() / 1000);
@@ -42,7 +88,7 @@ export default class extends Controller {
       // console.log("seconds", this.seconds)
 
       if (this.hour <= 0 && this.minutes <= 0 && this.seconds <= 0) {
-        this.element.innerText = `THIS MEETING HAS EXPIRED 0${this.hour}:0${this.minutes}:${this.seconds}`;
+        this.timerTarget.innerText = `THIS MEETING HAS EXPIRED 0${this.hour}:0${this.minutes}:${this.seconds}`;
         return clearInterval(this.countdown)
       }
 
@@ -63,64 +109,11 @@ export default class extends Controller {
           this.minutes = 59
         } else if (this.minutes <= 0 && this.hour < 1) {
           this.minutes = 0
-          this.hours = 0
+          this.hour = 0
           this.seconds = 0
         }
       }
-      this.element.innerText = `${this.hour < 10 ? "0" : ""}${this.hour}:${this.minutes < 10 ? "0" : ""}${this.minutes}:${this.seconds < 10 ? "0" : ""}${this.seconds}`
+      this.timerTarget.innerText = `${this.hour < 10 ? "0" : ""}${this.hour}:${this.minutes < 10 ? "0" : ""}${this.minutes}:${this.seconds < 10 ? "0" : ""}${this.seconds}`
       }, 1000);
     }
 }
-      // if (this.hour < 10) {
-      //   this.element.innerText = `0${this.hour}`
-
-      //   if (this.minute < 10) {
-      //     this.element.innerText = `0${this.minutes}`
-      //   }
-
-      //   if (this.seconds < 10) {
-      //     this.element.innerText = `0${this.seconds}`
-//   }
-// }
-
-      // if (this.hour == 0 && this.minutes == 0 && this.seconds == 0 ) {
-      //   this.element.innerText = "EXPIRED"; }
-
-  // clearInterval()
-
-
-
-
-  // } else if (this.hour == 0 && this.minutes == 0 && this.seconds > 0 ) {
-  //   this.seconds -= 1;
-  // } else if (this.hour == 0 && this.minutes > 0 ) {
-  //   this.seconds -= 1
-  // }
-
-
-
-
-
-
-
-  // const timerTarget = this.targets.find("timer");
-  // const duration = parseInt(this.data.get("duration"));
-  // const endTime = new Date().getTime() + (duration * 60000);
-
-  // const updateTimer =() => {
-  //   const now = new Date().getTime();
-  //   const distance = endTime - now;
-  //     if (distance < 0) {
-  //       clearInterval(countdown);
-  //       this.timerTarget.textContent = "EXPIRED";
-  //     } else {
-  //       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  //       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  //       this.timerTarget.textContent = `${hours}h ${minutes}m ${seconds}s`;
-  //     }
-  //   };
-
-  // updateTimer();
-  // const countdown = setInterval(updateTimer, 1000);

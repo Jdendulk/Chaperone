@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :pages, only: [:index, :show]
+  patch 'meetings/:id/extend', to: 'meetings#extend'
   resources :meetings, only: [:new, :create, :show, :update, :destroy] do
     member do
       get "/chat", to: "meetings#chat"

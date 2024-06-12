@@ -1,4 +1,4 @@
-<div class="container p-3 mt-3" <%= %(data-controller="meeting-locations") unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>">
+<div class="container p-3 mt-3" <%= %(data-controller=meeting-locations) unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
       <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
@@ -12,16 +12,18 @@
   <% end %>
 
   <% if !@share_code %>
-    <h2 class="countdown mb-3" data-controller="countdown" data-countdown-duration-value="<%= @meeting.duration %>"></h2>
+    <div data-controller="countdown" data-countdown-duration-value="<%= @meeting.duration %>" data-countdown-meeting-id-value=" <%= @meeting.id %>">
 
-    <%= link_to do %>
-      <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i>  extend  </p>
-      <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time">need more time? <i class="fa-solid fa-plus plus p-3"></i></button>
-    <% end %>
+      <h2 class="countdown mb-3" data-countdown-target="timer"></h2>
+
+      <%= link_to do %>
+        <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time" data-action="click->countdown#extendSession"><i class="fa-solid fa-plus p-3"></i>15 more minutes? <i class="fa-solid fa-plus p-3"></i></button>
+      <% end %>
+    </div>
   <% end %>
 
-  <h2 class="text-white fw-light mb-2">location</h2>
-</div>
+  <h2 class="text-white fw-light mb-2">your live location</h2>
+</div>xf
 
 <div class="map mb-3"
     id="map"
@@ -33,17 +35,22 @@
 <% if !@share_code %>
   <div class="container p-3 mt-3">
     <h2 class="text-white fw-light">following</h2>
-    <p class="text-white fw-light">Click on your friends to share your personal link</p>
-    <div class="share-friends d-flex form-group">
-      <div class="grid">
-        <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
-
-        <% @meeting.friends.each do |friend| %>
-          <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
-            <%= image_tag friend.image_url, class: "avatar-large item share-icon" %>
+    <div class="share-friends d-flex flex-column form-group p-4">
+      <div><p class="text-white fw-light">Click below to share your personal link:</p></div>
+        <div class="grid">
+          <div class="text-white fs-light friend_name">
+            <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
+              </p class="text-info fw-light">Chaperone</p>
+            </div>
+          <% @meeting.friends.each do |friend| %>
+              <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
+                <div class="text-white friend_name">
+                  <%= image_tag friend.image_url, class: "avatar-large item share-icon" %>
+                  </p class="text-info fs-light"><%= friend.name %></p>
+                </div>
+              <% end %>Ç
           <% end %>
-        <% end %>
-      </div>
+        </div>
     </div>
 
   <div class="buttons d-flex gap-2 mb-3">
