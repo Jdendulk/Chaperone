@@ -33,15 +33,15 @@
   </div>
 
   <div class="buttons d-flex gap-2 mb-3">
-    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-danger text-white d-flex align-items-center justify-content-center' do %>
+    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-danger text-white d-flex align-items-center justify-content-center p-3' do %>
       <div class="text">SOS</div>
     <% end %>
-    <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center">
+    <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center p-3">
       <%= link_to howdiditgo_meeting_path do %>
         <div class="text text-primary" id="safe-button">safe</div>
       <% end %>
     </div>
-    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-warning text-white d-flex align-items-center justify-content-center' do %>
+    <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-warning text-white d-flex align-items-center justify-content-center p-3' do %>
       <div class="text text-center">its getting <br>weird</div>
     <% end %>
 
