@@ -6,15 +6,17 @@
     </h1>
   </div>
 
-  <h2 class="countdown mb-3" data-controller="countdown" data-countdown-duration-value="<%= @meeting.duration %>"></h2>
+  <div data-controller="countdown" data-countdown-duration-value="<%= @meeting.duration %>" data-countdown-meeting-id-value=" <%= @meeting.id %>">
+    <h2 class="countdown mb-3" data-countdown-target="timer"></h2>
 
-  <%= link_to do %>
-    <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i>  extend  </p>
-    <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time">need more time? <i class="fa-solid fa-plus plus p-3"></i></button>
-  <% end %>
+    <%= link_to do %>
+      <%# <p class="click-me text-danger fw-bold text-end extend"><i class="fa-solid fa-arrow-left"></i></p> %>
+      <button class="btn btn-outline-success form-control rounded-pill border-none mb-3" id="need-more-time" data-action="click->countdown#extendSession"><i class="fa-solid fa-plus p-3"></i>15 more minutes? <i class="fa-solid fa-plus p-3"></i></button>
+    <% end %>
+  </div>
 
-  <h2 class="text-white fw-light mb-2">location</h2>
-</div>
+  <h2 class="text-white fw-light mb-2">your live location</h2>
+</div>xf
 
 <div class="map mb-3"
     id="map"

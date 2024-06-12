@@ -41,7 +41,7 @@ class MeetingsController < ApplicationController
 
   # chatroom and code to ensure meeting privacy
   # def chat
-  #   @meeting = Meeting.find(params[:id])
+  #   @`meeting = Meeting.find(params[:id])
 
   #   if @meeting.nil? || @meeting.user != current_user
   #     # User is allowed to access the meeting
@@ -52,7 +52,7 @@ class MeetingsController < ApplicationController
   # end
   # chatroom and code to ensure meeting privacy
   def chat
-    @meeting = Meeting.find_by(id: params[:id])
+    @meeting = Meeting.find(params[:id])
 
     if @meeting.nil? || @meeting.user != current_user
       # User is not allowed to access the meeting, redirect to home page
@@ -60,6 +60,11 @@ class MeetingsController < ApplicationController
     else
       # User is allowed to access the meeting
     end
+  end
+
+  def extend
+    @meeting = Meeting.find(params[:id])
+    @meeting.update(extend_meeting_params)
   end
 
   #updating of the meeting information tt
@@ -86,5 +91,9 @@ class MeetingsController < ApplicationController
 
   def meeting_params
     params.require(:meeting).permit(:start_time, :end_time, :date, :who, :what, :initial_meet_location, :latitude, :longitude, :fake_call, :how_did_it_go, :duration)
+  end
+
+  def extend_meeting_params
+    params.require(:meeting).permit(:duration)
   end
 end
