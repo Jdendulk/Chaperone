@@ -1,4 +1,5 @@
 
+<<<<<<< refs/remotes/origin/new24
 <div class="container p-3 mt-3">
     <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %> new</h1>
 <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
@@ -38,6 +39,52 @@
     <%= f.submit class: 'btn btn-outline-success w-100 rounded-pill form-submit select' %>
   </div>
 <% end %>
+=======
+  <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
+    <div class="meeting-form-group">
+      <%= f.input :who, placeholder: 'Jessie Rodgers', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
+    </div>
+
+    <div class="meeting-form-group">
+      <%= f.input :what, placeholder: 'Heading home...', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
+    </div>
+
+    <div class="meeting-form-group">
+      <%= f.input :start_time, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } },  label_html: { class: 'meeting-form-label' } %>
+    </div>
+
+    <div class="meeting-form-group">
+      <%= f.input :duration, as: :select, collection: options_for_meeting_duration, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } }, label_html: { class: 'meeting-form-label' }, selected: 0 %>
+    </div>
+
+    <div class="meeting-form-group">
+      <%= f.input :date, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } },  label_html: { class: 'meeting-form-label ' }   %>
+    </div>
+
+    <div class="meeting-form-group">
+      <%= f.input :initial_meet_location, input_html: { class: 'meeting-form-control border-0 rounded-pill control', placeholder: "1 Rosoman Street"},  label_html: { class: 'meeting-form-label' } %>
+    </div>
+
+    <%#= f.association :friends, as: :check_boxes, legend_tag: false, input_html: { class: "friend-selector" }, item_wrapper_class: 'friend-item' %>
+
+    <div class="meeting-form-group">
+
+      <div class="share-friends meeting-form-group control">
+        <p class="text-white fw-light full-width-header">who is allowed to follow you?</p>
+
+        <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url.present? ? friend.image_url : asset_path('avatar.jpeg')} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
+
+      </div>
+    </div>
+
+
+    <div class="meeting-form-group">
+      <%# <button class="btn btn-outline-success w-100 rounded-pill form-submit select-btn" data-bs-toggle="modal" data-bs-taget="#exampleModal">Submit</button> %>
+
+
+
+  <%= f.submit 'hook me up', class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn', data: { bs_toggle: "modal", bs_target: "#exampleModal" } %>
+>>>>>>> local
 
 </div>
 <div class="spacer"></div>

@@ -38,8 +38,49 @@
         <div class="text text-primary" id= "safe-button">safe</div>
       <% end %>
     </div>
+<<<<<<< refs/remotes/origin/new24
     <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center">
       <div class="text">SOS</div>
+=======
+
+<div class="container">
+    <h3 class="text-white fw-light mb-3"><%= @meeting.user.first_name %>'s route:</h3>
+</div>
+<div class="map mb-3"
+    id="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-meeting-user-id-value='<%= @meeting.user.id %>'
+    data-map-current-user-id-value='<%= current_user ? current_user.id : nil %>'>
+</div>
+
+<% if !@share_code %>
+  <div class="container p-3 mt-3">
+    <h2 class="text-white fw-light">following</h2>
+    <div class="share-friends d-flex flex-column form-group p-4">
+      <div>
+        <p class="text-white fw-light">click below to share your personal link:</p>
+      </div>
+      <div class="grid">
+        <div class="text-white fs-light friend_name">
+          <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">
+            C<i class="fa-solid fa-check"></i>
+          </div>
+          <p class="text-white fw-light mt-2">chaperone</p>
+        </div>
+        <% @meeting.friends.each do |friend| %>
+          <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
+            <div class="text-white friend_name avatar-friend-avatar text-center">
+              <%= image_tag friend.image_url, class: "item share-icon default-icon avatar-custom" %>
+              <i class="fa-solid fa-check"></i>
+              <p class="text-white fs-light mt-2"><%= friend.name %></p>
+            </div>
+
+          <% end %>
+        <% end %>
+      </div>
+>>>>>>> local
     </div>
   </div>
 
