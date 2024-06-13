@@ -28,12 +28,10 @@
 
     <%#= f.association :friends, as: :check_boxes, legend_tag: false, input_html: { class: "friend-selector" }, item_wrapper_class: 'friend-item' %>
 
-   <p class="text-white fw-light full-width-header">Who is allowed to follow you?</p>
     <div class="meeting-form-group">
 
-      <div class="share-friends d-flex meeting-form-group control">
-
-
+      <div class="share-friends meeting-form-group control">
+        <p class="text-white fw-light full-width-header">Who is allowed to follow you?</p>
 
         <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url.present? ? friend.image_url : asset_path('avatar.jpeg')} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
 
