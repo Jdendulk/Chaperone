@@ -73,7 +73,7 @@ image_urls = [
   "https://vuesax.com/avatars/avatar-3.png"
 ]
 
-friend_names = ["dan", "Sarah", "Rob", "Cveziani", "Avatar"]
+friend_names = ["dan", "sarah", "rob", "cveziani", "avatar"]
 
 friends = image_urls.each_with_index do |url, i|
   Friend.create!(
