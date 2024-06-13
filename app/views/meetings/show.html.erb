@@ -1,4 +1,4 @@
-<div class="container p-3 pb-0 mt-3" <%= %(data-controller=meeting-locations) unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
+<<div class="container p-3 pb-0 mt-3" <%= %(data-controller=meeting-locations) unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
       <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
@@ -17,28 +17,23 @@
       <h2 class="countdown mb-3" data-countdown-target="timer"></h2>
       <div class="d-flex justify-content-center">
 
- <%= link_to do %>
+      <%= link_to do %>
         <button class="btn btn-success bg-success border-none mb-3 fifteen-btn text-primary" id="need-more-time" data-action="click->countdown#extendSession">
           <div class="d-flex align-items-center justify-content-center">
             <span class="text-danger"><i class="fa-solid fa-plus plus-icon"></i></span>
             <span class="fs-4">15</span>
           </div>
-
           </button>
       <% end %>
-
-
       </div>
+
       <div class="d-flex need-time fw-bold">
-
-  <p class="click-me text-white "><i class="fa-solid fa-arrow-left text-danger"></i> more time? </p>
-
+        <p class="click-me text-white "><i class="fa-solid fa-arrow-left text-danger"></i> more time? </p>
       </div>
     </div>
-  <% end %>
+      <% end %>
+    </div>
 
-
-</div>
 <div class="container">
     <h2 class="text-white fw-light mb-3">your live location</h2>
 </div>
@@ -77,20 +72,21 @@
 
     <div class="buttons d-flex gap-2 mb-3">
       <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-danger text-white d-flex align-items-center justify-content-center p-3' do %>
-        <div class="text">SOS</div>
+    <div class="text">SOS</div>
       <% end %>
     <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center p-3">
       <%= link_to howdiditgo_meeting_path do %>
-        <div class="text text-primary" id="safe-button">safe</div>
+    <div class="text text-primary" id="safe-button">safe</div>
       <% end %>
     </div>
     <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-warning text-white d-flex align-items-center justify-content-center p-3' do %>
       <div class="text text-center">it's getting <br>weird</div>
-    <% end %>
-  </div>
-  <div class="spacer"></div>
-<% else %>
+        <% end %>
+      </div>
+    <% else %>
   <div class="container p-3 mt-3">
     <p class="text-white">this is your personal page to follow <%= @meeting.user.first_name %></p>
   </div>
 <% end %>
+</div>>
+    <div class="spacer"></div>
