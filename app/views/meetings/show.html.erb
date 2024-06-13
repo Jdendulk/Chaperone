@@ -23,8 +23,8 @@
         <button class="extend-button-link btn btn-success bg-success border-none mb-3 fifteen-btn text-primary" id="need-more-time" data-action="click->countdown#extendSession">
 
           <div class="d-flex align-items-center justify-content-center">
-            <span class="text-danger"><i class="fa-solid fa-plus plus-icon"></i></span>
-            <span class="fs-4">15</span>
+            <span class="text-danger"><i class="fa-solid fa-plus plus-icon me-1"></i></span>
+            <span class="fs-4 fw-bold"> 15</span>
           </div>
         </button>
 
@@ -66,8 +66,9 @@
         </div>
         <% @meeting.friends.each do |friend| %>
           <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
-            <div class="text-white friend_name text-center">
-              <%= image_tag friend.image_url, class: "avatar-large item share-icon" %>
+            <div class="text-white friend_name avatar-friend-avatar text-center">
+              <%= image_tag friend.image_url, class: "item share-icon default-icon avatar-custom" %>
+              <i class="fa-solid fa-check"></i>
               <p class="text-white fs-light mt-2"><%= friend.name %></p>
             </div>
 
@@ -77,9 +78,9 @@
     </div>
 
     <div class="buttons d-flex gap-2 mb-3">
-      <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-danger text-white d-flex align-items-center justify-content-center p-3' do %>
-    <div class="text">SOS</div>
-      <% end %>
+
+      <div class="meeting-btn bg-danger text-white d-flex align-items-center justify-content-center p-3 text" data-bs-toggle="modal" data-bs-target="#sosModal">SOS</div>
+
     <div class="meeting-btn bg-success flex-grow-1 text-white d-flex align-items-center justify-content-center p-3">
       <%= link_to howdiditgo_meeting_path do %>
     <div class="text text-primary" id="safe-button">safe</div>
@@ -94,5 +95,6 @@
     <p class="text-white">this is your personal page to follow <%= @meeting.user.first_name %></p>
   </div>
 <% end %>
-</div>>
+<%= render "shared/sos_modal" %>
+</div>
     <div class="spacer"></div>
