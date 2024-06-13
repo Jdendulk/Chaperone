@@ -33,10 +33,10 @@
 
       <div class="share-friends d-flex meeting-form-group control">
 
-        <div class="d-flex">
-        <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
 
-        </div>
+
+        <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url.present? ? friend.image_url : asset_path('avatar.jpeg')} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
+
       </div>
     </div>
 
