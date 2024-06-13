@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :landing, only: [:index]
   resources :friends
   resources :friend_meetings, only: [:create, :destroy]
   resources :users, only: [:create, :update]
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   get "profiles/edit", to: 'users#edit', as: :edit_profile
   get "profiles/:id", to: 'users#profile', as: :profile
 
-  root to: "pages#index"
+  root to: "landing#index"
 
   get "up" => "rails/health#show", as: :rails_health_check
   get 'form_page', to: 'pages#form_page'

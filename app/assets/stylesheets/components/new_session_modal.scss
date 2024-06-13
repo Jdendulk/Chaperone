@@ -11,5 +11,15 @@
 }
 
 .content-width {
-  max-width: 150px;
+  max-width: 170px;
+}
+
+.main-logo {
+  transform: translate(-10px, -30px);
+}
+
+.landing-bg {
+  background-color: $primary;
+  padding: 0px;
+  margin: 0px;
 }

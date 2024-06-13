@@ -13,8 +13,6 @@ export default class extends Controller {
     this.cardokTarget.classList.add("d-none");
     this.cardbadTarget.classList.add("d-none");
     this.cardgoodTarget.classList.remove("d-none");
-
-
   }
 
   togglecardok() {
