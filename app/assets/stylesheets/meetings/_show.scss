@@ -62,6 +62,7 @@ a {
 .need-time {
   transform: translate(140px,-80px) rotate(10deg);
   position: absolute;
+  z-index: 0;
 }
 
 .plus-icon {

@@ -10,17 +10,16 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     chaperone_bot = User.find_by(email: "chaperone@chaperone.com")
-    @gpt_message = Message.new(content: gpt_response)
-    @gpt_message.user = chaperone_bot
-    @gpt_message.meeting = @meeting
-    @gpt_message.save
-    puts @gpt_message
 
     if @message.save
       # Broadcast the message to the chat channel
       ActionCable.server.broadcast "meeting_chat_#{@message.meeting_id}_channel", {
         message: render_message(@message)
       }
+      @gpt_message = Message.new(content: gpt_response)
+      @gpt_message.user = chaperone_bot
+      @gpt_message.meeting = @meeting
+      @gpt_message.save
       ActionCable.server.broadcast "meeting_chat_#{@message.meeting_id}_channel", {
         message: render_message(@gpt_message)
       }

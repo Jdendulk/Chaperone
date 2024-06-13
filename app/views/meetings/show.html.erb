@@ -17,14 +17,13 @@
       <h2 class="countdown mb-3" data-countdown-target="timer"></h2>
       <div class="d-flex justify-content-center">
 
-      <%= link_to do %>
-        <button class="btn btn-success bg-success border-none mb-3 fifteen-btn text-primary" id="need-more-time" data-action="click->countdown#extendSession">
+        <button class="extend-button-link btn btn-success bg-success border-none mb-3 fifteen-btn text-primary" id="need-more-time" data-action="click->countdown#extendSession">
           <div class="d-flex align-items-center justify-content-center">
             <span class="text-danger"><i class="fa-solid fa-plus plus-icon"></i></span>
             <span class="fs-4">15</span>
           </div>
-          </button>
-      <% end %>
+        </button>
+
       </div>
 
       <div class="d-flex need-time fw-bold">
