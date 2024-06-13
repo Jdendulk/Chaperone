@@ -31,7 +31,7 @@
     <div class="meeting-form-group">
       <p class="text-white fw-light">Who is allowed to follow you?</p>
       <div class="share-friends d-flex meeting-form-group control">
-        <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
+        <%= f.input :friends, as: :check_boxes, legend_tag: false, collection: @friends.map { |friend| ["<img class='avatar-large item share-icon' alt='avatar-large' src=#{friend.image_url.present? ? friend.image_url : asset_path('avatar.jpeg')} />".html_safe, friend.id]} , input_html: { class: "friend-selector", name: 'meeting[friend_ids][]' }, item_wrapper_class: 'friend-item' %>
       </div>
     </div>
 
