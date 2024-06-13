@@ -1,12 +1,12 @@
 <h1 class="text-white mt-3 mb-4 text-center fw-light heading">
     <%= image_tag 'Star 2.svg' %>
-    chat with Chaperone
+    chat with   <%= image_tag "Chaperone (without established).png", class: "main-logo small-logo" %>
     </h1>
 <div class="container chat" id="chat" data-controller="meeting-chat" data-meeting-chat-meeting-id-value="<%= @meeting.id %>">
   <%# <h1>Meeting with <%= current_user.email %>
 
   <div class="messages" data-meeting-chat-target="messages">
-    <%= @meeting.messages.count %>
+    <%#= @meeting.messages %>
     <% @meeting.messages.each do |message| %>
       <%# <% if message.user = current_user  %>
         <%= render 'messages/message', message: message %>
@@ -15,12 +15,11 @@
   </div>
 
   <%= simple_form_for [ @meeting, Message.new ], remote: true, html: { data: { 'meeting-chat-target': "form" } } do |form| %>
-    <div class="form-group">
+    <div class="form-group position-relative">
       <%= form.text_area :content, rows: 3, class: "form-control mb-3 rounded-box txt", data: { 'meeting-chat-target': "input" }, placeholder: "Type a message..." %>
+      <%= form.submit "Send", class: 'btn btn-outline-success form-submit message-sent-button select-btn mb-3 w-25', data: { action: "meeting-chat#submit" } %>
     </div>
-    <div class="form-group">
-      <%= form.submit "Send", class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn mb-3', data: { action: "meeting-chat#submit" } %>
-    </div>
+
     <div class="form-group">
       <%= link_to "Back", meeting_path(@meeting), class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn mb-3', style: "padding-top: 25px;" %>
     </div>
