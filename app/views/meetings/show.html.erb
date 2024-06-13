@@ -42,7 +42,7 @@
             <div class="avatar-custom item default-icon border d-flex justify-content-center align-items-center text-white fw-light">C<i class="fa-solid fa-check"></i></div>
               </p class="text-info fw-light">Chaperone</p>
             </div>
-          <% @meeting.friends.each do |friend| %>
+              <% @meeting.friends.each do |friend| %>
               <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
                 <div class="text-white friend_name">
                   <%= image_tag friend.image_url, class: "avatar-large item share-icon" %>
@@ -63,7 +63,7 @@
       <% end %>
     </div>
     <%= link_to chat_meeting_path(@meeting), class: 'meeting-btn bg-warning text-white d-flex align-items-center justify-content-center p-3' do %>
-      <div class="text text-center">its getting <br>weird</div>
+      <div class="text text-center">it's getting <br>weird</div>
     <% end %>
    </div>
    <div class="spacer"></div>
