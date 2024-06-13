@@ -14,6 +14,7 @@ export default class extends Controller {
         received: (data) => {
           console.log("Received data:", data);
           this.messagesTarget.insertAdjacentHTML("beforeend", data.message);
+          this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
           this.inputTarget.value = "";
         }
       }
@@ -48,8 +49,6 @@ export default class extends Controller {
     }).then(response => {
       if (response.ok) {
         this.inputTarget.value = ""; // Clear the input field
-        // HERE is where we trigger chat-gpt to respond
-
       } else {
         response.text().then(text => this.displayErrorMessage(text));
       }
@@ -62,16 +61,18 @@ export default class extends Controller {
   displayErrorMessage(message) {
     const existingErrorMessage = document.getElementById("error_message");
     if (!existingErrorMessage) {
-      const errorExplanation = document.createElement("div");
-      errorExplanation.id = "error_explanation";
-      errorExplanation.innerHTML = `<ul id="error_message"><li>${message}</li></ul>`;
-      this.formTarget.insertAdjacentElement("beforebegin", errorExplanation);
+      this.inputTarget.style.border = "3px solid red"
+      // const errorExplanation = document.createElement("div");
+      // errorExplanation.id = "error_explanation";
+      // errorExplanation.innerHTML = `<ul id="error_message"><li>${message}</li></ul>`;
+      // this.formTarget.insertAdjacentElement("beforebegin", errorExplanation);
       setTimeout(() => {
-        errorExplanation.remove();
+        this.inputTarget.style.border = "none"
       }, 2000);
     }
   }
 }
+
 
 //user creates a message
 //the message should trigger a response from gpt

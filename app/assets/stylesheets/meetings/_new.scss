@@ -1,0 +1,31 @@
+.friend-item {
+  display: inline-block;
+}
+
+.friend-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.friend-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.7rem;
+  border-radius: 50rem;
+  background-color: #ECEAFF;
+  color: #7E73FF;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.friend-selector:checked + label {
+  box-shadow: 0px 0px 8px 4px rgba($color: $success, $alpha: 0.8);
+  background-color: $success;
+  color: white;
+}
+
+.meeting_friends {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

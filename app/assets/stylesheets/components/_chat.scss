@@ -1,3 +1,74 @@
+.heading {
+  position: sticky;
+
+}
 .meeting-chat-message {
   color: white;
+  background-color: $info;
+  padding: 24px;
+  margin-bottom: 8px;
+  border-radius: 30px;
+  text-align: end;
+  box-shadow: 0px 0px 6px rgba(256,256,256,0.3);
+  .msg-info {
+    color: rgba(256,256,256,0.5);
+  }
+}
+
+.txt {
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.5);
+  padding: 16px;
+  max-width: 285px;
+
+}
+
+.txt:hover {
+  box-shadow: 0px 0px 10px rgba(256,256,256,0.3);
+
+}
+
+
+.meeting-chat-message[data-user-email="chaperone@chaperone.com"] {
+  background-color: $success;
+  padding: 24px;
+  color: black; /* Example styling for special users */
+  text-align: start;
+  box-shadow: 0px 0px 6px rgba(256,256,256,0.4);
+  .msg-info {
+    color: rgba(0,0,0,0.5);
+  }
+  .msg-time {
+    text-align: end;
+  }
+}
+
+.chat {
+  height: calc(100vh - 212px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .messages {
+    max-height: 675px;
+    overflow: scroll;
+  }
+}
+
+.rounded-box {
+  border-radius: 30px;
+}
+
+.message-sent-button {
+  position: absolute;
+  background-color: #371F7D;
+  color: 371F7D;
+  right: 0;
+  top: 0;
+  border-radius: 30px;
+  height: 100%;
+}
+
+.top-back-button {
+  position: absolute;
+  left: 0;
 }

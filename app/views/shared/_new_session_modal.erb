@@ -1,0 +1,41 @@
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-5 call-card">
+      <div class="modal-header custom-model-border">
+        <h1 class="modal-title fw-light fs-5" id="exampleModalLabel">remember</h1>
+        <button type="button" class="btn fs-4" data-bs-dismiss="modal" aria-label="Close" id="close"><i class="fa-solid fa-x"></i></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="chat-box  modal-box d-flex px-2 justify-content-center ">
+          <p class="me-4 pt-4 pb-3 content-width fw-light">we are here to chat anytime</p>
+          <i class="fa-regular fa-message fs-2 pt-4 pb-3"></i>
+
+        </div>
+        <div class="load-box modal-box d-flex px-2 justify-content-center">
+          <div class="d-flex justify-content-center align-items-center">
+             <i class="fa-solid fa-spinner fs-1"></i>
+          </div>
+
+            <p class="ms-4 pt-4 pb-3 content-width fw-light">load app during your meeting</p>
+        </div>
+        <div class="call-box modal-box d-flex px-2 justify-content-center">
+
+          <p class="me-4 pt-4 pb-3 content-width fw-light">recieve a fake call</p>
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-phone-volume fs-2"></i>
+          </div>
+        </div>
+        <div class="have-fun-box d-flex px-2 justify-content-center">
+                    <i class="fa-regular fa-face-smile-wink fs-1 pt-4 pb-3"></i>
+          <p class="ms-4 pt-4 pb-3 content-width fw-light">have fun</p>
+
+        </div>
+      </div>
+      <div class="modal-footer footer-border">
+
+        <%= f.submit 'Submit', class: 'btn btn-outline-success w-100 rounded-pill form-submit select-btn' %>
+      </div>
+    </div>
+  </div>
+</div>

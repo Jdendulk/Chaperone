@@ -3,7 +3,7 @@
   border-radius: 50%;
 }
 .avatar-large {
-  width: 64px;
+  width: 80px;
   border-radius: 50%;
 }
 .avatar-bordered {
@@ -20,8 +20,8 @@
 }
 
 .avatar-custom {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background-color: $primary;
   position: relative;
@@ -32,6 +32,17 @@
     position: absolute;
     bottom: -8px;
     right: 0;
+    color: $green;
+    font-size: 32px;
+  }
+}
+
+.avatar-friend {
+  position: relative;
+  i {
+    position: absolute;
+    bottom: 21px;
+    right: -2px;
     color: $green;
     font-size: 32px;
   }

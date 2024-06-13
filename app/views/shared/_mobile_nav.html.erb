@@ -1,8 +1,13 @@
   <div class="navbar d-flex justify-content-around bg-warning text-primary">
+
+    <div class="" data-controller="call">
+
+      <i class="fa-solid fa-phone fs-4" data-bs-toggle="modal" data-bs-target="#callModal"></i>
+    </div>
      <%= link_to pages_path do%>
     <div class=""> <i class="fa-solid fa-house fs-4"></i> </div>
       <% end %>
-    <div  class=""><i class="fa-solid fa-phone fs-4"></i></div>
+
     <% if @meeting.nil? || @meeting.id == nil %>
     <div  class=""><i class="fa-regular fa-message fs-4"></i></div>
       <% else %>
@@ -10,7 +15,5 @@
     <div  class=""><i class="fa-regular fa-message fs-4"></i></div>
       <% end %>
       <% end %>
-       <%= link_to  destroy_user_session_path, data: {turbo_method: :delete} do%>
-    <div  class=""><i class="fa-solid fa-gear fs-4"></i></div>
-  <% end%>
+
   </div>

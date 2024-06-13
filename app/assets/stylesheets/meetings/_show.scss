@@ -1,4 +1,4 @@
-#count-down {
+.countdown {
   font-size: 60px;
   color: $green;
   text-align: center;
@@ -26,12 +26,11 @@ a {
 }
 
 .map {
+  overflow: hidden;
   background-image: url("https://www.mapsinternational.co.uk/pub/media/catalog/product/x/l/o/london-city-street-map-print-charcoal_ls01554.jpg");
-  border-radius: 40px;
   background-position: top;
   background-repeat: no-repeat;
   height: 250px;
-
 }
 
 .meeting-btn {
@@ -42,10 +41,30 @@ a {
 }
 
 .text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .grid {
   background: $gray;
   border-radius: 20px;
+}
+
+.friend_name {
+  font-size: 14px;
+}
+
+.fifteen-btn {
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+}
+
+.need-time {
+  transform: translate(140px,-80px) rotate(10deg);
+  position: absolute;
+  z-index: 0;
+}
+
+.plus-icon {
+  font-size: 14px;
 }

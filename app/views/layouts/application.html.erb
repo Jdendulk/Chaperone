@@ -8,18 +8,24 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
   </head>
 
-  <body>
-
-
+  <body >
 
     <%= render "shared/flashes" %>
-    <%= render "shared/navbar" %>
 
     <%= yield %>
 
-    <%= render "shared/mobile_nav" %>
+
+    <%= render "shared/callmodal" %>
+
+    <% if !@no_mobile_nav %>
+      <%= render "shared/mobile_nav" %>
+    <% end %>
+
 
   </body>
 </html>
