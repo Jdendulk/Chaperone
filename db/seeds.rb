@@ -18,13 +18,13 @@ Location.destroy_all
 Meeting.destroy_all
 User.destroy_all
 
+# first_names = ["John", "Josh", "Roel", "Louise", "Daniel"]
+
 # Create Users
-users = 5.times.map do |i|
-  User.create!(
-    email: "user#{i + 1}@example.com",
-    password: "password#{i + 1}",
-    first_name: "FirstName#{i + 1}",
-    last_name: "LastName#{i + 1}",
+user = User.create!(
+    email: "alex@gmail.com",
+    password: "password1",
+    first_name: "alex",
     date_of_birth: "01-01-1990",
     mobile_number: "1234567890",
     address: "123 Main St",
@@ -32,10 +32,9 @@ users = 5.times.map do |i|
     sexuality: ["Straight", "Gay", "Bisexual", "Asexual", "Queer", "Rather not say"].sample,
     admin: [true, false].sample
   )
-end
 
 User.create!(
-  first_name: "Chaperone Bot",
+  first_name: "chaperone bot",
   email: "chaperone@chaperone.com",
   password: "password",
   admin: true
@@ -44,7 +43,7 @@ User.create!(
 # Create Meetings
 meetings = 5.times.map do |i|
   meeting = Meeting.create!(
-    user: users.sample,
+    user: user,
     start_time: "08:00",
     end_time: "10:00",
     date: Date.today + i,
@@ -74,13 +73,15 @@ image_urls = [
   "https://vuesax.com/avatars/avatar-3.png"
 ]
 
+friend_names = ["dan", "sarah", "rob", "cveziani", "avatar"]
+
 friends = image_urls.each_with_index do |url, i|
   Friend.create!(
-    user_id: users[i].id,
+    user: user,
     email: Faker::Internet.email,
     image_url: url,
     phone: "07912611841",
-    name: "FirstName#{i + 1}"
+    name: friend_names[i]
   )
 end
 
@@ -100,7 +101,7 @@ end
 5.times do |i|
   Message.create!(
     content: "Message content #{i + 1}",
-    user: users.sample,
+    user: user,
     meeting: meetings.sample
   )
 end
