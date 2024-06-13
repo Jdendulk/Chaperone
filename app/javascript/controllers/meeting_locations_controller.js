@@ -10,7 +10,7 @@ export default class extends Controller {
   connect() {
     const options = {
       enableHighAccuracy: false,
-      timeout: 5000,
+      timeout: 60000,
       maximumAge: 0,
     };
 
@@ -18,6 +18,7 @@ export default class extends Controller {
   }
 
   success(pos) {
+    console.log(pos)
     const crd = pos.coords;
     const csrf = document.querySelector('meta[name="csrf-token"]').content
     const [path, url] = this
