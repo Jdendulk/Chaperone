@@ -27,14 +27,13 @@ export default class extends Controller {
       }
     }
 
-
-
     window.setTimeout(() => {
       document.querySelector(".mapboxgl-ctrl-geolocate").click();
 
     }, 200);
 
   }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       const customMarker = document.createElement("div")
