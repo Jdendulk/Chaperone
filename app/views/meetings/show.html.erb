@@ -1,4 +1,4 @@
-<div class="container p-3 pb-0 mt-3" <%= %(data-controller="meeting-locations") unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
+<div class="container p-3 pb-0 mt-3" <%= %(data-controller=meeting-locations) unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
       <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
@@ -27,10 +27,11 @@
             <span class="fs-4 fw-bold"> 15</span>
           </div>
         </button>
-        <% end %>
+
       </div>
 
       </div>
+      <% end %>
       <div class="d-flex need-time fw-bold">
         <p class="click-me text-white "><i class="fa-solid fa-arrow-left text-danger"></i> more time? </p>
       </div>
@@ -39,12 +40,7 @@
     </div>
 
 <div class="container">
-  <% if @share_code %>
-    <h2 class="text-white fw-light mb-3"><%= @meeting.user.first_name %>'s route:</h2>
-  <% end %>
-  <% if !@share_code %>
     <h2 class="text-white fw-light mb-3">your live location</h2>
-  <% end %>
 </div>
 <div class="map mb-3"
     id="map"
@@ -76,6 +72,7 @@
               <i class="fa-solid fa-check"></i>
               <p class="text-white fs-light mt-2"><%= friend.name %></p>
             </div>
+
           <% end %>
         <% end %>
       </div>
