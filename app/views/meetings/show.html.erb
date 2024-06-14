@@ -73,7 +73,7 @@
           <p class="text-white fw-light mt-2">chaperone</p>
         </div>
         <% @meeting.friends.each do |friend| %>
-          <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code}. Do not share this link", target: "_blank" do %>
+          <%= link_to "https://wa.me/?text=Link to follow #{@meeting.user.first_name}: #{meeting_url(@meeting)}?share_code=#{@meeting.user.share_code} Do not share this link", target: "_blank" do %>
             <div class="text-white friend_name avatar-friend text-center">
               <%= image_tag friend.image_url, class: "item share-icon default-icon avatar-custom" %>
               <i class="fa-solid fa-check"></i>

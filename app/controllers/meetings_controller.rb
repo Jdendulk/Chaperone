@@ -21,6 +21,7 @@ class MeetingsController < ApplicationController
     @friends = Friend.all
     @meeting = Meeting.find(params[:id])
     @share_code = params[:share_code]
+
     if @share_code && @meeting.user.share_code != @share_code
       redirect_to root_path, notice: "You are not allowed to see this meeting"
       return
