@@ -1,4 +1,4 @@
-<<div class="container p-3 pb-0 mt-3" <%= %(data-controller=meeting-locations) unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
+<div class="container p-3 pb-0 mt-3" <%= %(data-controller="meeting-locations") unless @share_code %> data-meeting-locations-meeting-value="<%= @meeting.id %>" data-meeting-locations-url-value="<%= meetings_url %>">
   <div data-controller="session">
     <h1 class="text-white mb-4 text-center fw-light">
       <%= image_tag 'Ellipse 6.svg', data: {session_target: "image"}, class: "initial" %>
@@ -27,11 +27,10 @@
             <span class="fs-4 fw-bold"> 15</span>
           </div>
         </button>
-
+        <% end %>
       </div>
 
       </div>
-      <% end %>
       <div class="d-flex need-time fw-bold">
         <p class="click-me text-white "><i class="fa-solid fa-arrow-left text-danger"></i> more time? </p>
       </div>
@@ -72,7 +71,6 @@
               <i class="fa-solid fa-check"></i>
               <p class="text-white fs-light mt-2"><%= friend.name %></p>
             </div>
-
           <% end %>
         <% end %>
       </div>
