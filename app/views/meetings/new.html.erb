@@ -12,10 +12,6 @@
       <%= f.input :what, placeholder: 'Heading home...', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
     </div>
 
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-outline-success w-100 rounded-pill form-submit select' %>
-  </div>
-<% end %>
     <div class="meeting-form-group">
       <%= f.input :start_time, html5: true, input_html: { class: 'meeting-form-control border-0 rounded-pill control', data: { "inputstyling-target": "input", "action": "change->inputstyling#updateColor" } },  label_html: { class: 'meeting-form-label' } %>
     </div>
