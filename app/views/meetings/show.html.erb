@@ -40,8 +40,15 @@
     </div>
 
 <div class="container">
+
+  <% if @share_code %>
+  <% raise %>
+    <h2 class="text-white fw-light mb-3"><%= @meeting.user.first_name %>'s route:</h2>
+  <% elsif !@share_code %>
     <h2 class="text-white fw-light mb-3">your live location</h2>
+  <% end %>
 </div>
+
 <div class="map mb-3"
     id="map"
     data-controller="map"
