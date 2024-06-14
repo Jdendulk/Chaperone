@@ -16,6 +16,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
+      center: [0.1276, 51.5072],
       style: "mapbox://styles/jdendulk/clxa9kfiz00o301qq14v78iag",
     })
     if (this.currentUserIdValue === this.meetingUserIdValue) {

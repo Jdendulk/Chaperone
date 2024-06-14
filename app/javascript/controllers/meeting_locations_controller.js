@@ -8,6 +8,9 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log("connected");
+    console.log(this.meetingValue);
+    console.log(this.urlValue);
     const options = {
       enableHighAccuracy: false,
       timeout: 5000,
@@ -18,6 +21,7 @@ export default class extends Controller {
   }
 
   success(pos) {
+    console.log(pos);
     const crd = pos.coords;
     const csrf = document.querySelector('meta[name="csrf-token"]').content
     const [path, url] = this
