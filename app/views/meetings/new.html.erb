@@ -1,8 +1,6 @@
 <div class="container p-3 mt-3" data-controller="inputstyling share" data-meeting-id="<%= @meeting.id %>">
   <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %> tell us more</h1>
 
-<div class="container p-3 mt-3">
-    <h1 class="text-white mb-4 text-center fw-light">  <%= image_tag 'Star 2.svg' %> new</h1>
   <%= simple_form_for @meeting, html: { class: 'form-horizontal' } do |f| %>
     <div class="meeting-form-group">
       <%= f.input :who, placeholder: 'Jessie Rodgers', input_html: { class: 'meeting-form-control border-0 rounded-pill control' }, label_html: {class: "meeting-form-label"} %>
